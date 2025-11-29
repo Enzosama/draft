@@ -1,0 +1,68 @@
+{
+    "topics": [
+        {
+            "slug": "web-security",
+            "name": "Web Security",
+            "topic_type": "both",
+            "domain": "Web",
+            "level": "beginner",
+            "description": "Bảo mật ứng dụng Web, tập trung vào các lỗ hổng phổ biến (OWASP Top 10) và cách phòng chống.",
+            "resources": [
+                {
+                    "title": "OWASP Top 10 - 2021",
+                    "resource_type": "article",
+                    "source": "https://owasp.org/www-project-top-ten/",
+                    "is_offensive": true,
+                    "is_defensive": true,
+                    "difficulty": "beginner",
+                    "tags": "owasp,web,vulnerability",
+                    "summary": "Danh sách 10 lỗ hổng bảo mật web phổ biến và nguy hiểm nhất."
+                },
+                {
+                    "title": "SQL Injection Prevention Guide",
+                    "resource_type": "book",
+                    "file_url": "https://drive.google.com/file/d/ABC123/view",
+                    "is_offensive": false,
+                    "is_defensive": true,
+                    "difficulty": "intermediate",
+                    "tags": "sqli,defense,pdf",
+                    "summary": "Hướng dẫn chi tiết phòng chống SQL Injection - Tài liệu PDF."
+                },
+                {
+                    "title": "Web Security Lab Materials",
+                    "resource_type": "note",
+                    "file_url": "/path/to/local/file.pdf",
+                    "source": "https://example.com/additional-info",
+                    "is_offensive": true,
+                    "is_defensive": false,
+                    "difficulty": "advanced",
+                    "tags": "lab,practice,hackthebox",
+                    "summary": "Bài lab thực hành khai thác lỗ hổng web - có cả PDF và link bổ sung."
+                }
+            ]
+        }
+    ],
+    "_notes": {
+        "file_url": "Đường dẫn đến file PDF (Google Drive link, local path, hoặc URL trực tiếp). Hiển thị với icon màu xanh lá.",
+        "source": "Đường dẫn external link (website, repo, tool). Hiển thị với icon màu xanh dương.",
+        "usage": "Có thể dùng cả file_url VÀ source cùng lúc như ví dụ resource thứ 3. Ít nhất phải có 1 trong 2.",
+        "resource_type_options": [
+            "book",
+            "article",
+            "lab",
+            "tool",
+            "note"
+        ],
+        "difficulty_options": [
+            "beginner",
+            "intermediate",
+            "advanced"
+        ],
+        "topic_type_options": [
+            "attack",
+            "defense",
+            "both",
+            "other"
+        ]
+    }
+}

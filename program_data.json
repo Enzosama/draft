@@ -1,0 +1,3969 @@
+{
+  "generated_at": "2025-11-16T22:20:10",
+  "databases": {
+    "sqlite_backend": {
+      "exists": true,
+      "path": "backend/db.sqlite",
+      "tables": {
+        "classroom_exams": {
+          "create_sql": "CREATE TABLE classroom_exams ( classroom_id INTEGER NOT NULL, exam_id INTEGER NOT NULL, assigned_at DATETIME DEFAULT CURRENT_TIMESTAMP, due_date DATETIME, PRIMARY KEY (classroom_id, exam_id), FOREIGN KEY (classroom_id) REFERENCES classrooms(id) ON DELETE CASCADE, FOREIGN KEY (exam_id) REFERENCES exams(id) ON DELETE CASCADE )",
+          "columns": [
+            {
+              "cid": 0,
+              "name": "classroom_id",
+              "type": "INTEGER",
+              "notnull": 1,
+              "dflt_value": null,
+              "pk": 1
+            },
+            {
+              "cid": 1,
+              "name": "exam_id",
+              "type": "INTEGER",
+              "notnull": 1,
+              "dflt_value": null,
+              "pk": 2
+            },
+            {
+              "cid": 2,
+              "name": "assigned_at",
+              "type": "DATETIME",
+              "notnull": 0,
+              "dflt_value": "CURRENT_TIMESTAMP",
+              "pk": 0
+            },
+            {
+              "cid": 3,
+              "name": "due_date",
+              "type": "DATETIME",
+              "notnull": 0,
+              "dflt_value": null,
+              "pk": 0
+            }
+          ],
+          "row_count": 0,
+          "rows": [],
+          "mock": {
+            "classroom_id": 1,
+            "exam_id": 1,
+            "assigned_at": "2025-11-16T22:20:10",
+            "due_date": "2025-11-16T22:20:10"
+          }
+        },
+        "classroom_posts": {
+          "create_sql": "CREATE TABLE classroom_posts ( classroom_id INTEGER NOT NULL, post_id INTEGER NOT NULL, assigned_at DATETIME DEFAULT CURRENT_TIMESTAMP, PRIMARY KEY (classroom_id, post_id), FOREIGN KEY (classroom_id) REFERENCES classrooms(id) ON DELETE CASCADE, FOREIGN KEY (post_id) REFERENCES posts(id) ON DELETE CASCADE )",
+          "columns": [
+            {
+              "cid": 0,
+              "name": "classroom_id",
+              "type": "INTEGER",
+              "notnull": 1,
+              "dflt_value": null,
+              "pk": 1
+            },
+            {
+              "cid": 1,
+              "name": "post_id",
+              "type": "INTEGER",
+              "notnull": 1,
+              "dflt_value": null,
+              "pk": 2
+            },
+            {
+              "cid": 2,
+              "name": "assigned_at",
+              "type": "DATETIME",
+              "notnull": 0,
+              "dflt_value": "CURRENT_TIMESTAMP",
+              "pk": 0
+            }
+          ],
+          "row_count": 0,
+          "rows": [],
+          "mock": {
+            "classroom_id": 1,
+            "post_id": 1,
+            "assigned_at": "2025-11-16T22:20:10"
+          }
+        },
+        "classroom_students": {
+          "create_sql": "CREATE TABLE classroom_students ( classroom_id INTEGER NOT NULL, student_id INTEGER NOT NULL, joined_at DATETIME DEFAULT CURRENT_TIMESTAMP, PRIMARY KEY (classroom_id, student_id), FOREIGN KEY (classroom_id) REFERENCES classrooms(id) ON DELETE CASCADE, FOREIGN KEY (student_id) REFERENCES users(id) ON DELETE CASCADE )",
+          "columns": [
+            {
+              "cid": 0,
+              "name": "classroom_id",
+              "type": "INTEGER",
+              "notnull": 1,
+              "dflt_value": null,
+              "pk": 1
+            },
+            {
+              "cid": 1,
+              "name": "student_id",
+              "type": "INTEGER",
+              "notnull": 1,
+              "dflt_value": null,
+              "pk": 2
+            },
+            {
+              "cid": 2,
+              "name": "joined_at",
+              "type": "DATETIME",
+              "notnull": 0,
+              "dflt_value": "CURRENT_TIMESTAMP",
+              "pk": 0
+            }
+          ],
+          "row_count": 0,
+          "rows": [],
+          "mock": {
+            "classroom_id": 1,
+            "student_id": 1,
+            "joined_at": "2025-11-16T22:20:10"
+          }
+        },
+        "classrooms": {
+          "create_sql": "CREATE TABLE classrooms ( id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL, description TEXT, subject TEXT, teacher_id INTEGER NOT NULL, code TEXT UNIQUE NOT NULL, is_active BOOLEAN DEFAULT 1, created_at DATETIME DEFAULT CURRENT_TIMESTAMP, updated_at DATETIME DEFAULT CURRENT_TIMESTAMP, FOREIGN KEY (teacher_id) REFERENCES users(id) )",
+          "columns": [
+            {
+              "cid": 0,
+              "name": "id",
+              "type": "INTEGER",
+              "notnull": 0,
+              "dflt_value": null,
+              "pk": 1
+            },
+            {
+              "cid": 1,
+              "name": "name",
+              "type": "TEXT",
+              "notnull": 1,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 2,
+              "name": "description",
+              "type": "TEXT",
+              "notnull": 0,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 3,
+              "name": "subject",
+              "type": "TEXT",
+              "notnull": 0,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 4,
+              "name": "teacher_id",
+              "type": "INTEGER",
+              "notnull": 1,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 5,
+              "name": "code",
+              "type": "TEXT",
+              "notnull": 1,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 6,
+              "name": "is_active",
+              "type": "BOOLEAN",
+              "notnull": 0,
+              "dflt_value": "1",
+              "pk": 0
+            },
+            {
+              "cid": 7,
+              "name": "created_at",
+              "type": "DATETIME",
+              "notnull": 0,
+              "dflt_value": "CURRENT_TIMESTAMP",
+              "pk": 0
+            },
+            {
+              "cid": 8,
+              "name": "updated_at",
+              "type": "DATETIME",
+              "notnull": 0,
+              "dflt_value": "CURRENT_TIMESTAMP",
+              "pk": 0
+            }
+          ],
+          "row_count": 0,
+          "rows": [],
+          "mock": {
+            "id": 1,
+            "name": "mock_name",
+            "description": "mock_description",
+            "subject": "mock_subject",
+            "teacher_id": 1,
+            "code": "mock_code",
+            "is_active": 1,
+            "created_at": "2025-11-16T22:20:10",
+            "updated_at": "2025-11-16T22:20:10"
+          }
+        },
+        "exam_questions": {
+          "create_sql": "CREATE TABLE exam_questions (\n    exam_id INTEGER,\n    question_id INTEGER,\n    order_index INTEGER,\n    PRIMARY KEY (exam_id, question_id),\n    FOREIGN KEY (exam_id) REFERENCES exams(id),\n    FOREIGN KEY (question_id) REFERENCES questions(question_id)\n)",
+          "columns": [
+            {
+              "cid": 0,
+              "name": "exam_id",
+              "type": "INTEGER",
+              "notnull": 0,
+              "dflt_value": null,
+              "pk": 1
+            },
+            {
+              "cid": 1,
+              "name": "question_id",
+              "type": "INTEGER",
+              "notnull": 0,
+              "dflt_value": null,
+              "pk": 2
+            },
+            {
+              "cid": 2,
+              "name": "order_index",
+              "type": "INTEGER",
+              "notnull": 0,
+              "dflt_value": null,
+              "pk": 0
+            }
+          ],
+          "row_count": 0,
+          "rows": [],
+          "mock": {
+            "exam_id": 1,
+            "question_id": 1,
+            "order_index": 0
+          }
+        },
+        "exams": {
+          "create_sql": "CREATE TABLE exams (\n    id INTEGER PRIMARY KEY AUTOINCREMENT,\n    title TEXT NOT NULL,\n    author TEXT NOT NULL,\n    subject TEXT NOT NULL,\n    description TEXT,\n    duration_min INTEGER,\n    file_url TEXT,\n    answer_file_url TEXT,\n    created_by INTEGER,\n    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,\n    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP, teacher_id INTEGER, subject_id INTEGER,\n    FOREIGN KEY (created_by) REFERENCES users(id)\n)",
+          "columns": [
+            {
+              "cid": 0,
+              "name": "id",
+              "type": "INTEGER",
+              "notnull": 0,
+              "dflt_value": null,
+              "pk": 1
+            },
+            {
+              "cid": 1,
+              "name": "title",
+              "type": "TEXT",
+              "notnull": 1,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 2,
+              "name": "author",
+              "type": "TEXT",
+              "notnull": 1,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 3,
+              "name": "subject",
+              "type": "TEXT",
+              "notnull": 1,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 4,
+              "name": "description",
+              "type": "TEXT",
+              "notnull": 0,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 5,
+              "name": "duration_min",
+              "type": "INTEGER",
+              "notnull": 0,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 6,
+              "name": "file_url",
+              "type": "TEXT",
+              "notnull": 0,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 7,
+              "name": "answer_file_url",
+              "type": "TEXT",
+              "notnull": 0,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 8,
+              "name": "created_by",
+              "type": "INTEGER",
+              "notnull": 0,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 9,
+              "name": "created_at",
+              "type": "DATETIME",
+              "notnull": 0,
+              "dflt_value": "CURRENT_TIMESTAMP",
+              "pk": 0
+            },
+            {
+              "cid": 10,
+              "name": "updated_at",
+              "type": "DATETIME",
+              "notnull": 0,
+              "dflt_value": "CURRENT_TIMESTAMP",
+              "pk": 0
+            },
+            {
+              "cid": 11,
+              "name": "teacher_id",
+              "type": "INTEGER",
+              "notnull": 0,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 12,
+              "name": "subject_id",
+              "type": "INTEGER",
+              "notnull": 0,
+              "dflt_value": null,
+              "pk": 0
+            }
+          ],
+          "row_count": 0,
+          "rows": [],
+          "mock": {
+            "id": 1,
+            "title": "mock_title",
+            "author": "mock_author",
+            "subject": "mock_subject",
+            "description": "mock_description",
+            "duration_min": 0,
+            "file_url": "mock_file_url",
+            "answer_file_url": "mock_answer_file_url",
+            "created_by": 1,
+            "created_at": "2025-11-16T22:20:10",
+            "updated_at": "2025-11-16T22:20:10",
+            "teacher_id": 1,
+            "subject_id": 1
+          }
+        },
+        "notification_reads": {
+          "create_sql": "CREATE TABLE notification_reads ( notification_id INTEGER NOT NULL, student_id INTEGER NOT NULL, read_at DATETIME DEFAULT CURRENT_TIMESTAMP, PRIMARY KEY (notification_id, student_id), FOREIGN KEY (notification_id) REFERENCES notifications(id) ON DELETE CASCADE, FOREIGN KEY (student_id) REFERENCES users(id) ON DELETE CASCADE )",
+          "columns": [
+            {
+              "cid": 0,
+              "name": "notification_id",
+              "type": "INTEGER",
+              "notnull": 1,
+              "dflt_value": null,
+              "pk": 1
+            },
+            {
+              "cid": 1,
+              "name": "student_id",
+              "type": "INTEGER",
+              "notnull": 1,
+              "dflt_value": null,
+              "pk": 2
+            },
+            {
+              "cid": 2,
+              "name": "read_at",
+              "type": "DATETIME",
+              "notnull": 0,
+              "dflt_value": "CURRENT_TIMESTAMP",
+              "pk": 0
+            }
+          ],
+          "row_count": 0,
+          "rows": [],
+          "mock": {
+            "notification_id": 1,
+            "student_id": 1,
+            "read_at": "2025-11-16T22:20:10"
+          }
+        },
+        "notifications": {
+          "create_sql": "CREATE TABLE notifications ( id INTEGER PRIMARY KEY AUTOINCREMENT, classroom_id INTEGER NOT NULL, title TEXT NOT NULL, content TEXT NOT NULL, created_by INTEGER NOT NULL, is_announcement BOOLEAN DEFAULT 0, created_at DATETIME DEFAULT CURRENT_TIMESTAMP, FOREIGN KEY (classroom_id) REFERENCES classrooms(id) ON DELETE CASCADE, FOREIGN KEY (created_by) REFERENCES users(id) )",
+          "columns": [
+            {
+              "cid": 0,
+              "name": "id",
+              "type": "INTEGER",
+              "notnull": 0,
+              "dflt_value": null,
+              "pk": 1
+            },
+            {
+              "cid": 1,
+              "name": "classroom_id",
+              "type": "INTEGER",
+              "notnull": 1,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 2,
+              "name": "title",
+              "type": "TEXT",
+              "notnull": 1,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 3,
+              "name": "content",
+              "type": "TEXT",
+              "notnull": 1,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 4,
+              "name": "created_by",
+              "type": "INTEGER",
+              "notnull": 1,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 5,
+              "name": "is_announcement",
+              "type": "BOOLEAN",
+              "notnull": 0,
+              "dflt_value": "0",
+              "pk": 0
+            },
+            {
+              "cid": 6,
+              "name": "created_at",
+              "type": "DATETIME",
+              "notnull": 0,
+              "dflt_value": "CURRENT_TIMESTAMP",
+              "pk": 0
+            }
+          ],
+          "row_count": 0,
+          "rows": [],
+          "mock": {
+            "id": 1,
+            "classroom_id": 1,
+            "title": "mock_title",
+            "content": "mock_content",
+            "created_by": 1,
+            "is_announcement": 1,
+            "created_at": "2025-11-16T22:20:10"
+          }
+        },
+        "password_reset_tokens": {
+          "create_sql": "CREATE TABLE password_reset_tokens (\n    id INTEGER PRIMARY KEY AUTOINCREMENT,\n    user_id INTEGER NOT NULL,\n    token TEXT NOT NULL,\n    expires_at DATETIME NOT NULL,\n    used BOOLEAN DEFAULT 0,\n    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,\n    FOREIGN KEY (user_id) REFERENCES users(id)\n)",
+          "columns": [
+            {
+              "cid": 0,
+              "name": "id",
+              "type": "INTEGER",
+              "notnull": 0,
+              "dflt_value": null,
+              "pk": 1
+            },
+            {
+              "cid": 1,
+              "name": "user_id",
+              "type": "INTEGER",
+              "notnull": 1,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 2,
+              "name": "token",
+              "type": "TEXT",
+              "notnull": 1,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 3,
+              "name": "expires_at",
+              "type": "DATETIME",
+              "notnull": 1,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 4,
+              "name": "used",
+              "type": "BOOLEAN",
+              "notnull": 0,
+              "dflt_value": "0",
+              "pk": 0
+            },
+            {
+              "cid": 5,
+              "name": "created_at",
+              "type": "DATETIME",
+              "notnull": 0,
+              "dflt_value": "CURRENT_TIMESTAMP",
+              "pk": 0
+            }
+          ],
+          "row_count": 0,
+          "rows": [],
+          "mock": {
+            "id": 1,
+            "user_id": 1,
+            "token": "mock_token",
+            "expires_at": "2025-11-16T22:20:10",
+            "used": 1,
+            "created_at": "2025-11-16T22:20:10"
+          }
+        },
+        "posts": {
+          "create_sql": "CREATE TABLE posts (\n    id INTEGER PRIMARY KEY AUTOINCREMENT,\n    title TEXT NOT NULL,\n    author TEXT NOT NULL,\n    date TEXT NOT NULL,\n    subject TEXT NOT NULL,\n    category TEXT NOT NULL,\n    description TEXT,\n    views INTEGER DEFAULT 0,\n    downloads INTEGER DEFAULT 0,\n    class TEXT,\n    specialized TEXT,\n    file_url TEXT,\n    user_id INTEGER,\n    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,\n    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP, teacher_id INTEGER, subject_id INTEGER, classroom_id INTEGER,\n    FOREIGN KEY (user_id) REFERENCES users(id)\n)",
+          "columns": [
+            {
+              "cid": 0,
+              "name": "id",
+              "type": "INTEGER",
+              "notnull": 0,
+              "dflt_value": null,
+              "pk": 1
+            },
+            {
+              "cid": 1,
+              "name": "title",
+              "type": "TEXT",
+              "notnull": 1,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 2,
+              "name": "author",
+              "type": "TEXT",
+              "notnull": 1,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 3,
+              "name": "date",
+              "type": "TEXT",
+              "notnull": 1,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 4,
+              "name": "subject",
+              "type": "TEXT",
+              "notnull": 1,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 5,
+              "name": "category",
+              "type": "TEXT",
+              "notnull": 1,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 6,
+              "name": "description",
+              "type": "TEXT",
+              "notnull": 0,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 7,
+              "name": "views",
+              "type": "INTEGER",
+              "notnull": 0,
+              "dflt_value": "0",
+              "pk": 0
+            },
+            {
+              "cid": 8,
+              "name": "downloads",
+              "type": "INTEGER",
+              "notnull": 0,
+              "dflt_value": "0",
+              "pk": 0
+            },
+            {
+              "cid": 9,
+              "name": "class",
+              "type": "TEXT",
+              "notnull": 0,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 10,
+              "name": "specialized",
+              "type": "TEXT",
+              "notnull": 0,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 11,
+              "name": "file_url",
+              "type": "TEXT",
+              "notnull": 0,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 12,
+              "name": "user_id",
+              "type": "INTEGER",
+              "notnull": 0,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 13,
+              "name": "created_at",
+              "type": "DATETIME",
+              "notnull": 0,
+              "dflt_value": "CURRENT_TIMESTAMP",
+              "pk": 0
+            },
+            {
+              "cid": 14,
+              "name": "updated_at",
+              "type": "DATETIME",
+              "notnull": 0,
+              "dflt_value": "CURRENT_TIMESTAMP",
+              "pk": 0
+            },
+            {
+              "cid": 15,
+              "name": "teacher_id",
+              "type": "INTEGER",
+              "notnull": 0,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 16,
+              "name": "subject_id",
+              "type": "INTEGER",
+              "notnull": 0,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 17,
+              "name": "classroom_id",
+              "type": "INTEGER",
+              "notnull": 0,
+              "dflt_value": null,
+              "pk": 0
+            }
+          ],
+          "row_count": 38,
+          "rows": [
+            {
+              "id": 1,
+              "title": "Đề thi thử THPT Quốc gia môn Hóa học",
+              "author": "Nhóm tác giả Công phá Hóa",
+              "date": "2025-11-14T00:00:00",
+              "subject": "Hóa học",
+              "category": "Đề Thi",
+              "description": "Đề thi thử THPT Quốc gia môn Hóa học kèm hướng dẫn giải chi tiết.",
+              "views": 0,
+              "downloads": 0,
+              "class": "12",
+              "specialized": null,
+              "file_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFyGd7_020NT8p6E-lRnYH4RFG0rzgwl1ZG2h4tcU01NEI-RViHyaziqCVpnBo3qfk3ZtcXSY6EpByWVWWjW9M2rprGBW5yCGt7_Z_Khc0aSuhvEO3RGa9M8uJgPkEtsa062lShObaoNvsjKKU4tlJefoYsAJ-3jGDbRR3_R_AVI_E3pP8AZbULe34OqCIv14epr2HmqztEqEUqTKU=",
+              "user_id": null,
+              "created_at": "2025-11-15 17:27:16",
+              "updated_at": "2025-11-15 17:27:16",
+              "teacher_id": null,
+              "subject_id": null,
+              "classroom_id": null
+            },
+            {
+              "id": 2,
+              "title": "25 chuyên đề ngữ pháp tiếng Anh",
+              "author": "Cô Trang Anh",
+              "date": "2025-11-14T00:00:00",
+              "subject": "Tiếng Anh",
+              "category": "Tài Liệu",
+              "description": "Sách 25 chuyên đề ngữ pháp tiếng Anh của cô Trang Anh, tài liệu hữu ích cho học sinh, sinh viên, người đi làm và luyện thi.",
+              "views": 0,
+              "downloads": 0,
+              "class": "12",
+              "specialized": null,
+              "file_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF3PRuecZH6aQ5FVGYsI-U7zo-82x_3qQ1NDRtOb4ewD74VoESQZ9Vf4usrE-esLE1GXqfgpxxFsQibfv1zAoXDJJd14Nkvy5FqaSYIAx097p5llJSOiR8sHnDJq16A8TIO05zdv0C9PA_jEyldtOi4cCEEXfZ8oCw=",
+              "user_id": null,
+              "created_at": "2025-11-15 17:27:16",
+              "updated_at": "2025-11-15 17:27:16",
+              "teacher_id": null,
+              "subject_id": null,
+              "classroom_id": null
+            },
+            {
+              "id": 3,
+              "title": "Đề thi THPT Quốc gia 2016 môn Tiếng Anh",
+              "author": "Bộ Giáo dục và Đào tạo",
+              "date": "2025-11-14T00:00:00",
+              "subject": "Tiếng Anh",
+              "category": "Đề Thi",
+              "description": "Đáp án đề thi THPT Quốc gia 2016 môn Tiếng Anh.",
+              "views": 0,
+              "downloads": 0,
+              "class": "12",
+              "specialized": null,
+              "file_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFjJaBMp3DuqnGS-b4LF89M2Ui9sAEH-HvDrlRE4BA1ld5I3CTpR_uYiRtW7W--3LrsrDMmKBIsG-pVLCuZhrBLHV3EaixzNgcmc0VtckeLLDSTBiYWZxAvLOLyCKxAgO84j4HHRy8LSRIyBc0etvkK22trHyEIP1qLo3pVSbowYlunEJdl155YAQIIWDC6nmAKHfijdC3U6Dn2",
+              "user_id": null,
+              "created_at": "2025-11-15 17:27:16",
+              "updated_at": "2025-11-15 17:27:16",
+              "teacher_id": null,
+              "subject_id": null,
+              "classroom_id": null
+            },
+            {
+              "id": 4,
+              "title": "40 đề thi thử THPT Quốc gia 2020 môn Địa lí",
+              "author": "Tủ sách luyện thi",
+              "date": "2025-11-14T00:00:00",
+              "subject": "Địa lý",
+              "category": "Đề Thi",
+              "description": "40 đề thi thử THPT Quốc gia 2020 môn Địa lí có đáp án và giải chi tiết.",
+              "views": 0,
+              "downloads": 0,
+              "class": "12",
+              "specialized": null,
+              "file_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHkic3UP1qyoXbWCIrqj5Ir4U2plL8gudVFv4rBlwVkSVv2CrqtXS6vsn2sjJvUMTOd8xSsUBUinLvfd15jPkBpMQlrWi_AWBHcIrRtk5RtIGJGfm9UVNTwdgYnHAlnK51qf5030lE729fCJrvlORQIkp2F_3uTlb959yfOjGPhpmO9",
+              "user_id": null,
+              "created_at": "2025-11-15 17:27:16",
+              "updated_at": "2025-11-15 17:27:16",
+              "teacher_id": null,
+              "subject_id": null,
+              "classroom_id": null
+            },
+            {
+              "id": 5,
+              "title": "Tài liệu Ôn tập Giải tích 12",
+              "author": "Trường THPT Bảo Lộc",
+              "date": "2025-11-14T00:00:00",
+              "subject": "Toán học",
+              "category": "Tài Liệu",
+              "description": "Tài liệu ôn tập môn toán 12 – Giải tích.",
+              "views": 0,
+              "downloads": 0,
+              "class": "12",
+              "specialized": null,
+              "file_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFW0uMc6Td9s5ljlXghSTRGYbm6AZtyak0CSu39iLS7TljvNmYKlcgXmk8AmRmvYzFeOZ54xqhp6o-9N1WmKKl_j1sBWFSb4JKXASbVhGxhehEvbivdUoe7Y_oAQBNRB289G_CP650mRucRvTzcILmVetrFaS2yPs99Yija97r7sE7jp4rl51VuaFPVbU04tCVZEERRmUxjHeVDHH8Kvf_urq10SbJ3qCaY",
+              "user_id": null,
+              "created_at": "2025-11-15 17:27:16",
+              "updated_at": "2025-11-15 17:27:16",
+              "teacher_id": null,
+              "subject_id": null,
+              "classroom_id": null
+            },
+            {
+              "id": 6,
+              "title": "Đề thi tham khảo kỳ thi ĐGNL học sinh THPT",
+              "author": "Đại học Quốc gia Hà Nội",
+              "date": "2025-11-14T00:00:00",
+              "subject": "Tin học",
+              "category": "Đề Thi",
+              "description": "Đề thi tham khảo kỳ thi đánh giá năng lực học sinh THPT.",
+              "views": 0,
+              "downloads": 0,
+              "class": "12",
+              "specialized": null,
+              "file_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG0SkXXiD3WSDmWumTbARa9JkeNGaSVW0f9UR6B0KldfCAjCxX-5t3IDfBYjXU68AOmz9R2CpOi9DPsfm4izrcqqbNo7HcW-AXHomaI-iU2HQBKuC3WDX6_k-IGJT9nGpftdywwqCNproeFsKSyIHQmCRHLeXZ8V1Tu36I3nXmRSXeMZMlXbYguNvvlPCYf1Zg8m5jL-8BsIeXSpcFzsfF7YJc6bzgCwZUXu_nbsgCGkA-0tLbLx7ylylPW0dlRog==",
+              "user_id": null,
+              "created_at": "2025-11-15 17:27:16",
+              "updated_at": "2025-11-15 17:27:16",
+              "teacher_id": null,
+              "subject_id": null,
+              "classroom_id": null
+            },
+            {
+              "id": 7,
+              "title": "Tài liệu ôn thi tốt nghiệp THPT Quốc gia môn Địa lí",
+              "author": "ThS. Quan Văn Út",
+              "date": "2025-11-14T00:00:00",
+              "subject": "Địa lý",
+              "category": "Tài Liệu",
+              "description": "Tài liệu ôn thi tốt nghiệp THPT Quốc gia môn Địa lí lớp 12, chuyên đề Địa lí dân cư.",
+              "views": 0,
+              "downloads": 0,
+              "class": "12",
+              "specialized": null,
+              "file_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFUdc51UOnOtLDp5zqmaJQIPgqKDVzrmZjf7v-Oeeyo7wcIlAi1EoXb368FHEFWWbk6r0wuiBjFyb9-aMcODZLxFaDYdOJgfI-5LhHZRy1K9YgB76-LlctZJP-__cWAvSH8EEaRK3K6PFHuzrub-kxiX8M=",
+              "user_id": null,
+              "created_at": "2025-11-15 17:27:16",
+              "updated_at": "2025-11-15 17:27:16",
+              "teacher_id": null,
+              "subject_id": null,
+              "classroom_id": null
+            },
+            {
+              "id": 8,
+              "title": "Tài liệu ôn thi THPT Quốc gia môn Vật lý",
+              "author": "Trường Cao đẳng Miền Nam",
+              "date": "2025-11-14T00:00:00",
+              "subject": "Vật lý",
+              "category": "Tài Liệu",
+              "description": "Tài liệu ôn thi THPT Quốc gia môn Vật lý, tóm tắt lý thuyết và các dạng bài tập.",
+              "views": 0,
+              "downloads": 0,
+              "class": "12",
+              "specialized": null,
+              "file_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGT69_POFopjs5sK_iMeoGihmdNCFZslc8C8deq54nGHFFHhUNd8on4G-CCg3LuOv7_JVczktJpPQtLGHw4Ey_TQRJLFCxTeKHL15yKUwDaSkthoBrLoImdw5V_pcnT4sfrcHnTMxkYjjJNhhnquAYOjgmDV0I90iP9McuxuKP9KSYOfB-eEtGEJqbdldnnE4-_0MyQdHHpheSrEw0PhADMUg==",
+              "user_id": null,
+              "created_at": "2025-11-15 17:27:16",
+              "updated_at": "2025-11-15 17:27:16",
+              "teacher_id": null,
+              "subject_id": null,
+              "classroom_id": null
+            },
+            {
+              "id": 9,
+              "title": "Hướng dẫn Ôn thi tốt nghiệp THPT môn Tin học",
+              "author": "Bộ sách Hướng dẫn ôn thi tốt nghiệp THPT",
+              "date": "2025-11-14T00:00:00",
+              "subject": "Tin học",
+              "category": "Tài Liệu",
+              "description": "Sách hướng dẫn ôn thi tốt nghiệp THPT môn Tin học theo chương trình giáo dục phổ thông 2018.",
+              "views": 0,
+              "downloads": 0,
+              "class": "12",
+              "specialized": null,
+              "file_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHWrQHwhk5B2Qkr6Y9WVa7t4t_zO9L7-_j3XjXUqiO7gUB8ivV7UbiWA6oNbWppsvdiNpfwcqeJ98zq2XVrhpID5jKfs1p7MfpdN_CQB0rdKWWLo1C6yrxG36m_rbdez_6tUIWSQssL-KL2XqUDZSWoEIZiz0k0dBskhL6WjzzBqVWcMPQ4Gg==",
+              "user_id": null,
+              "created_at": "2025-11-15 17:27:16",
+              "updated_at": "2025-11-15 17:27:16",
+              "teacher_id": null,
+              "subject_id": null,
+              "classroom_id": null
+            },
+            {
+              "id": 10,
+              "title": "Đề thi thử THPT Quốc gia 2024 môn Sinh học",
+              "author": "BTEC FPT",
+              "date": "2025-11-14T00:00:00",
+              "subject": "Sinh học",
+              "category": "Đề Thi",
+              "description": "Top 30 bộ đề thi thử THPT Quốc gia môn Sinh học năm 2024 từ các trường THPT lớn trên cả nước.",
+              "views": 0,
+              "downloads": 0,
+              "class": "12",
+              "specialized": null,
+              "file_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG7rUGc_G_Yi2Ita4QBsc7WTXW_VH1pdHZ6qPxSHN2YA79-g230F745vZ3-k6Ed7kfF0M6MzuBbOcq5egbcfM5nxGNLNPvuT3Svfowbht1onltUWwFGtDVptJvo9vWtfQ25aGnUerzwsAkru8RgVKtZDWP4EX4=",
+              "user_id": null,
+              "created_at": "2025-11-15 17:27:16",
+              "updated_at": "2025-11-15 17:27:16",
+              "teacher_id": null,
+              "subject_id": null,
+              "classroom_id": null
+            },
+            {
+              "id": 11,
+              "title": "Chuyên đề hàm số và đồ thị",
+              "author": "Lê Bá Bảo",
+              "date": "2025-11-14T00:00:00",
+              "subject": "Toán học",
+              "category": "Tài Liệu",
+              "description": "Tài liệu chuyên đề khảo sát hàm số, bao gồm lý thuyết và các dạng bài tập nhận dạng đồ thị hàm số.",
+              "views": 0,
+              "downloads": 0,
+              "class": "12",
+              "specialized": null,
+              "file_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHHRK6gO7NB9W3bsBGGAMdynChGAFX_O4imwHb2T0fdOBWak9Z7OXN3vsP5QB-IrjQodUNFsnZHNMPk8lYl8zwIrMR7ReMTM_XmWzyQLeE53J0ZlMXVvALiOHGBS3z1YuYhIukqrsbIlAqOwMifuKKeMDbQW7MUOHQ3iPvHn23CQwbG1lk69f8sJLc3CrjU-_9QCjY86B2rzWv8L6Mlpg==",
+              "user_id": null,
+              "created_at": "2025-11-15 17:27:16",
+              "updated_at": "2025-11-15 17:27:16",
+              "teacher_id": null,
+              "subject_id": null,
+              "classroom_id": null
+            },
+            {
+              "id": 12,
+              "title": "Tài liệu ôn thi THPT Quốc gia môn GDCD lớp 12",
+              "author": "Hoc247",
+              "date": "2025-11-14T00:00:00",
+              "subject": "GDCD",
+              "category": "Tài Liệu",
+              "description": "Tài liệu ôn thi THPT Quốc gia môn GDCD lớp 12, phần lý thuyết.",
+              "views": 0,
+              "downloads": 0,
+              "class": "12",
+              "specialized": null,
+              "file_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHWcbrhbvNkPjGoNZ2g_2Sa_idMtdt1wNF35PsJv89-_5ZsFquBi5YUEdyIxjcNfZ56wNqlrK1j2d0AIWFAScJ-yhfTwr05cAGcqlTI70Hv7-rxedg1LpCKeFfocXsH16bKL3R39BhFTCufb7IJQVdN24Qll-pszG0FR7EnV_utiYqQ7F8lM20I5Ww=",
+              "user_id": null,
+              "created_at": "2025-11-15 17:27:16",
+              "updated_at": "2025-11-15 17:27:16",
+              "teacher_id": null,
+              "subject_id": null,
+              "classroom_id": null
+            },
+            {
+              "id": 13,
+              "title": "Đề thi thử tốt nghiệp THPT 2023 môn Toán",
+              "author": "TOANMATH.com",
+              "date": "2025-11-14T00:00:00",
+              "subject": "Toán học",
+              "category": "Đề Thi",
+              "description": "Tổng hợp các đề thi thử tốt nghiệp THPT Quốc gia năm 2023 môn Toán có đáp án và lời giải chi tiết.",
+              "views": 0,
+              "downloads": 0,
+              "class": "12",
+              "specialized": null,
+              "file_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG_xcaCYVVPq7pmHwysyI6w0G2xw5_pjvKuyVFPLKP3d510La5Pkp6H4orGBO4PItn0G3lURhlwML_pzzL97pKAb6pQMI_V24msd4eBfzxYV_ox2148JevHPSPnTlSUoPjQLDACbUR1k6CGI-kPHBjC_VvlGgd-zW1qAWquuZcqR8E_I-HH7Tqpd32prsc=",
+              "user_id": null,
+              "created_at": "2025-11-15 17:27:16",
+              "updated_at": "2025-11-15 17:27:16",
+              "teacher_id": null,
+              "subject_id": null,
+              "classroom_id": null
+            },
+            {
+              "id": 14,
+              "title": "Tài liệu ôn thi THPT Quốc gia môn Vật lý - Dao động cơ",
+              "author": "DeThi.edu.vn",
+              "date": "2025-11-14T00:00:00",
+              "subject": "Vật lý",
+              "category": "Tài Liệu",
+              "description": "Chuyên đề ôn thi THPT Quốc gia môn Vật lý, chương 1: Dao động cơ, bao gồm đủ dạng toán và phương pháp giải chi tiết.",
+              "views": 0,
+              "downloads": 0,
+              "class": "12",
+              "specialized": null,
+              "file_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHWXC7hVVoRFjocHsEDr8uMY1zP5MARXp9mxY6VMSY2ediX1GU2paEih6F0ZQAnylZ-K40Jsscqg7EZUGDp5Ht7qW8ufT_HR_7Y5URVnbl7Vj9Z6RAM2kktOgZtcT5unmGW-ERh4QINFavJ-dYTuEbJaD12ezEdM8RfApUF5JVOnaWHIjLHCWeOSb5s5h78JGtzkMf4JugWB-5Pog==",
+              "user_id": null,
+              "created_at": "2025-11-15 17:27:16",
+              "updated_at": "2025-11-15 17:27:16",
+              "teacher_id": null,
+              "subject_id": null,
+              "classroom_id": null
+            },
+            {
+              "id": 15,
+              "title": "Đề thi thử THPT Quốc gia 2024 môn Vật lý",
+              "author": "Thư Viện Vật Lý",
+              "date": "2025-11-14T00:00:00",
+              "subject": "Vật lý",
+              "category": "Đề Thi",
+              "description": "Tổng hợp các đề thi thử tốt nghiệp THPT môn Vật lý năm 2024, bám sát đề minh họa của Bộ GD&ĐT.",
+              "views": 0,
+              "downloads": 0,
+              "class": "12",
+              "specialized": null,
+              "file_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH4i3Vbb3MseL0f2cwUiFYb9MJmipNG5REMcGjhtyUJlKcz967ZmCR-whE6V13OPx9NR4lN-QhgBrtKPr7GCJAIBJ_Ag0EI2U0MbY21XFZP73r4s0mtEvRSSd731-SgT0nf",
+              "user_id": null,
+              "created_at": "2025-11-15 17:27:16",
+              "updated_at": "2025-11-15 17:27:16",
+              "teacher_id": null,
+              "subject_id": null,
+              "classroom_id": null
+            },
+            {
+              "id": 16,
+              "title": "Đề thi thử THPT Quốc gia 2024 môn GDCD",
+              "author": "BTEC FPT",
+              "date": "2025-11-14T00:00:00",
+              "subject": "GDCD",
+              "category": "Đề Thi",
+              "description": "30 đề thi thử THPT Quốc gia môn GDCD mới nhất, giúp học sinh nắm vững kiến thức và kỹ năng làm bài.",
+              "views": 0,
+              "downloads": 0,
+              "class": "12",
+              "specialized": null,
+              "file_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHV2GdMBZhakVp356FIyTmuW4bzo61-dbcTlAHdRpN4D-VVTDht83bOiLEsbvVi3mekbuigWYUAVATuhVwWNkRlPwgxXyFCJFc-UoteZaOVksxDrNsNRsbvtHzBSAkP8UJFJhb_uL0Da3lDELvdglofpsDBCMM=",
+              "user_id": null,
+              "created_at": "2025-11-15 17:27:16",
+              "updated_at": "2025-11-15 17:27:16",
+              "teacher_id": null,
+              "subject_id": null,
+              "classroom_id": null
+            },
+            {
+              "id": 17,
+              "title": "Bài tập ngữ pháp Tiếng Anh 12 có đáp án",
+              "author": "Hoc247",
+              "date": "2025-11-14T00:00:00",
+              "subject": "Tiếng Anh",
+              "category": "Tài Liệu",
+              "description": "Tổng hợp bài tập ngữ pháp Tiếng Anh lớp 12 theo từng chuyên đề, có đáp án chi tiết.",
+              "views": 0,
+              "downloads": 0,
+              "class": "12",
+              "specialized": null,
+              "file_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF8J4kwlCjceyWMAZD_eOM2Rfz6FM5emKot538LD8Lgr_Gu2gvuvpjpIH6Gfqx1itaCE7ioxw1skCbKSpJf29ORZSXKWzwn6A40kjaYvv_6m-D4uRCsp-N6Gpv0BsJICOtj3B8rX8P5JniyF-jFx3JCsyHjaMgXH_vH0ef9Y_DdIQKXZD1sGAhwWSh0",
+              "user_id": null,
+              "created_at": "2025-11-15 17:27:16",
+              "updated_at": "2025-11-15 17:27:16",
+              "teacher_id": null,
+              "subject_id": null,
+              "classroom_id": null
+            },
+            {
+              "id": 18,
+              "title": "Tài liệu ôn thi THPT Quốc gia môn GDCD 12",
+              "author": "Hoc247",
+              "date": "2025-11-14T00:00:00",
+              "subject": "GDCD",
+              "category": "Tài Liệu",
+              "description": "Tài liệu ôn thi THPT Quốc gia môn GDCD lớp 12, phần lý thuyết, bao gồm các bài học trọng tâm.",
+              "views": 0,
+              "downloads": 0,
+              "class": "12",
+              "specialized": null,
+              "file_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEoTViAgYwxMrRTV6IYlB1UjcbaHVPTd2ptbgOSrrCOChzYjTokerMaUf9TDTkFr_bRW1DsGwiGy13VAIl_HxAcQxZnVPSk3ep1D3sjQnDN4obYycyPsf9tbkfZvbtg3hQYZarZ_unEkyumNVPndnzdzRjv6UmlPSgyo3ifDgdUVSDBdM9XVhyxzA==",
+              "user_id": null,
+              "created_at": "2025-11-15 17:27:16",
+              "updated_at": "2025-11-15 17:27:16",
+              "teacher_id": null,
+              "subject_id": null,
+              "classroom_id": null
+            },
+            {
+              "id": 19,
+              "title": "Đề thi học sinh giỏi Tin học lớp 12",
+              "author": "LCOJ",
+              "date": "2025-11-14T00:00:00",
+              "subject": "Tin học",
+              "category": "Đề Thi",
+              "description": "Đề thi học sinh giỏi môn Tin học lớp 12 năm học 2023-2024 của thành phố Hà Nội.",
+              "views": 0,
+              "downloads": 0,
+              "class": "12",
+              "specialized": "Chuyên",
+              "file_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEBPIoNKQ6kWy1XNYNfyOBLFa-nMswhYq053_VG2Mtp_bf4y2ZzQt1y7j9iP3tU-DMP-AXxusL3gQPAph5EOuHRqddj3alwhGF--U8TQcoOtGBgSdrbkD1K2HOQHKm9BQbSlyhUSSL5MjWXBGddf2rt_pv3MsiqG1W85AUoHYc=",
+              "user_id": null,
+              "created_at": "2025-11-15 17:27:16",
+              "updated_at": "2025-11-15 17:27:16",
+              "teacher_id": null,
+              "subject_id": null,
+              "classroom_id": null
+            },
+            {
+              "id": 20,
+              "title": "Bài tập Atlat Địa lí Việt Nam có lời giải",
+              "author": "VietJack",
+              "date": "2025-11-14T00:00:00",
+              "subject": "Địa lý",
+              "category": "Tài Liệu",
+              "description": "Các dạng bài tập về Atlat Địa lí Việt Nam, giúp học sinh rèn luyện kĩ năng đọc và phân tích bản đồ.",
+              "views": 0,
+              "downloads": 0,
+              "class": "12",
+              "specialized": null,
+              "file_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHWdXJfELl3Uj0Ku4EP7TJue6vT6iTzs8o3fGtr6z-skgTnbtgM1vF4VFb0RXQPU7NalZHcoLeQfi0FvuwVclScE_UkXNdauxlIBW4FmPTStk8Z4KReQwinti4caNu2vqnz4LbBz-AKX7VcAn6kmA2D9N94KjdNrTXfnmxr5OzhZxavQ_qfbJHqsENItxc=",
+              "user_id": null,
+              "created_at": "2025-11-15 17:27:16",
+              "updated_at": "2025-11-15 17:27:16",
+              "teacher_id": null,
+              "subject_id": null,
+              "classroom_id": null
+            },
+            {
+              "id": 21,
+              "title": "Tài liệu ôn thi THPT Quốc gia môn Lịch sử - Cách mạng tháng Tám",
+              "author": "Download.vn",
+              "date": "2025-11-14T00:00:00",
+              "subject": "Lịch sử",
+              "category": "Tài Liệu",
+              "description": "Tài liệu ôn thi THPT Quốc gia môn Lịch sử theo bài, giúp học sinh nắm chắc kiến thức trọng tâm, đặc biệt là giai đoạn Cách mạng tháng Tám 1945.",
+              "views": 0,
+              "downloads": 0,
+              "class": "12",
+              "specialized": null,
+              "file_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGjUhhuvAa3TDfodDmDQ4mxBZIfsYJP0Xqa0OvxTgIvTNRYI_jl00aQmnqiNISQSxCuA1cBdaNW0SHLUhsWDyvbwykQFxHp_updwqjWesFHX0bOgHBG1I1nxAwnRTVFEGc-wFyJuN62Gsp_EOUS4KnLuRqiqA4NvQwtf5MGw0u8Gow=",
+              "user_id": null,
+              "created_at": "2025-11-15 17:27:16",
+              "updated_at": "2025-11-15 17:27:16",
+              "teacher_id": null,
+              "subject_id": null,
+              "classroom_id": null
+            },
+            {
+              "id": 22,
+              "title": "Đề thi thử THPT Quốc gia 2023 môn Tiếng Anh",
+              "author": "IZONE",
+              "date": "2025-11-14T00:00:00",
+              "subject": "Tiếng Anh",
+              "category": "Đề Thi",
+              "description": "Tổng hợp 10+ đề thi thử Tiếng Anh THPT Quốc gia 2023, bám sát cấu trúc đề thi minh họa của Bộ GD&ĐT.",
+              "views": 0,
+              "downloads": 0,
+              "class": "12",
+              "specialized": null,
+              "file_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE3PB9t6tqBDV5omU9SbmfVslb9etzEMbhnB3IHCO6Jj9mo1CjGzHksP7egnYnOVVrwggHO6DSALEhTwJlx_ljbgcpdN5q51FzKF0KwWt7dHvZqtpKn1-2dJmRd60BV0huRo6JilndlGqKJtxumv2XOHMJWL0fi-8ROZcL0",
+              "user_id": null,
+              "created_at": "2025-11-15 17:27:16",
+              "updated_at": "2025-11-15 17:27:16",
+              "teacher_id": null,
+              "subject_id": null,
+              "classroom_id": null
+            },
+            {
+              "id": 23,
+              "title": "Giáo trình Cơ sở dữ liệu",
+              "author": "database.edu.vn",
+              "date": "2025-11-14T00:00:00",
+              "subject": "Tin học",
+              "category": "Tài Liệu",
+              "description": "Giáo trình trình bày các kỹ thuật cơ bản của cơ sở dữ liệu, mô hình liên kết thực thể và mô hình cơ sở dữ liệu quan hệ.",
+              "views": 0,
+              "downloads": 0,
+              "class": "12",
+              "specialized": "Chuyên",
+              "file_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHBtL6bzJ6c0soB9x_gzciXu_R1fTZiu7KfctAoR27L-IFk5wC2OX4PnJXfV_7G4RuOaJA44WQlkF9ZTPPyVqWrP9uB3-DdMKeBDBeWQEuNW9zmPYH15LIpJn-U1EAN7ypvX6ICSOI=",
+              "user_id": null,
+              "created_at": "2025-11-15 17:27:16",
+              "updated_at": "2025-11-15 17:27:16",
+              "teacher_id": null,
+              "subject_id": null,
+              "classroom_id": null
+            },
+            {
+              "id": 24,
+              "title": "Đề thi thử THPT Quốc gia 2019 môn GDCD",
+              "author": "Trường THPT Chuyên Nguyễn Trãi",
+              "date": "2025-11-14T00:00:00",
+              "subject": "GDCD",
+              "category": "Đề Thi",
+              "description": "Đề thi thử môn GDCD lần 1 năm học 2019-2020.",
+              "views": 0,
+              "downloads": 0,
+              "class": "12",
+              "specialized": null,
+              "file_url": "https://chuyennguyentrai.edu.vn/de-thi-thu-mon-gdcd-lan-1-nam-hoc-2019-2020-tin1105",
+              "user_id": null,
+              "created_at": "2025-11-15 17:27:17",
+              "updated_at": "2025-11-15 17:27:17",
+              "teacher_id": null,
+              "subject_id": null,
+              "classroom_id": null
+            },
+            {
+              "id": 25,
+              "title": "Một số biện pháp dạy và ôn tập môn Lịch sử lớp 12",
+              "author": "Tạp chí Khoa học Đại học Đồng Tháp",
+              "date": "2025-11-14T00:00:00",
+              "subject": "Lịch sử",
+              "category": "Tài Liệu",
+              "description": "Bài viết đề cập đến một số biện pháp dạy và ôn tập môn Lịch sử 12 theo hình thức thi trắc nghiệm khách quan.",
+              "views": 0,
+              "downloads": 0,
+              "class": "12",
+              "specialized": null,
+              "file_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH70VjSowU-ri6N3Vm1mu78b7BEPZ-VuiW7JfoZzdeF0W-lNMl-CQBo4kuke9_X7qL1TxGekdtNS0INl9ZARydvFLGwUs3COBworBo_bWuhELRjhpm6lN8MfpEXuoMnyfGD38uanfwEqrgcRe1Qgh3HinZfx5lUNwMB3m8=",
+              "user_id": null,
+              "created_at": "2025-11-15 17:27:17",
+              "updated_at": "2025-11-15 17:27:17",
+              "teacher_id": null,
+              "subject_id": null,
+              "classroom_id": null
+            },
+            {
+              "id": 26,
+              "title": "Lý thuyết và bài tập Hóa học hữu cơ 12",
+              "author": "ThS Nguyễn Văn Tiến",
+              "date": "2025-11-14T00:00:00",
+              "subject": "Hóa học",
+              "category": "Tài Liệu",
+              "description": "Bài giảng Hóa học hữu cơ bao gồm cơ sở lý thuyết và các hợp chất hữu cơ cơ bản.",
+              "views": 0,
+              "downloads": 0,
+              "class": "12",
+              "specialized": null,
+              "file_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGn_NMXyODX2T7SYpKzHm9eZ3t3u51veo7Kru6us4HTu6K_do7n32imKUT7Ki7TBUniA2-CgTFOSrlx4cw7AMTP90vD2e28VXgiW7oHS-czepD5Advt6K1v0l1mun3nxJy4L_zRDqFcRrN_o2d4vGameK67WpYjMy-rHsSNp3EeBoVxGh-8_vlYPr-z2cxTF-E=",
+              "user_id": null,
+              "created_at": "2025-11-15 17:27:17",
+              "updated_at": "2025-11-15 17:27:17",
+              "teacher_id": null,
+              "subject_id": null,
+              "classroom_id": null
+            },
+            {
+              "id": 27,
+              "title": "Hệ thống kiến thức ôn tập tốt nghiệp THPT 2021 môn Hóa học",
+              "author": "Trường THPT Dân tộc Nội trú tỉnh",
+              "date": "2025-11-14T00:00:00",
+              "subject": "Hóa học",
+              "category": "Tài Liệu",
+              "description": "Tài liệu ôn thi tốt nghiệp THPT Quốc gia 2021 môn Hóa học dưới dạng sơ đồ tư duy.",
+              "views": 0,
+              "downloads": 0,
+              "class": "12",
+              "specialized": null,
+              "file_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGKqLbw0wcCOEJZrzs02koTb5Zf8twiD6V_dD5cVx2UuomTJcPOTCIQj1VpkLxm0p8882-knwcNo71q4OUmIGag9mSzaDztlkXdlP5dBiTc6nXD2Ita9Ow1IqP766AnMWR6boohsL4bgcTOX9IxWPb9ifLIT_2nI4NyNpUcPiXLnCKLw5TMY9qKjymd8naQfp5--hdLT4ay",
+              "user_id": null,
+              "created_at": "2025-11-15 17:27:17",
+              "updated_at": "2025-11-15 17:27:17",
+              "teacher_id": null,
+              "subject_id": null,
+              "classroom_id": null
+            },
+            {
+              "id": 28,
+              "title": "Đề thi thử THPT Quốc gia 2020 môn GDCD",
+              "author": "Trường THPT Chuyên Nguyễn Trãi",
+              "date": "2025-11-14T00:00:00",
+              "subject": "GDCD",
+              "category": "Đề Thi",
+              "description": "Đề thi thử môn GDCD lần 2 năm học 2020-2021.",
+              "views": 0,
+              "downloads": 0,
+              "class": "12",
+              "specialized": null,
+              "file_url": "https://chuyennguyentrai.edu.vn/de-thi-thu-mon-gdcd-lan-2-nam-hoc-2020-2021-tin1106",
+              "user_id": null,
+              "created_at": "2025-11-15 17:27:17",
+              "updated_at": "2025-11-15 17:27:17",
+              "teacher_id": null,
+              "subject_id": null,
+              "classroom_id": null
+            },
+            {
+              "id": 29,
+              "title": "Hướng dẫn ôn thi tốt nghiệp THPT 2025 môn Sinh học",
+              "author": "Tuyển Sinh Số",
+              "date": "2025-11-14T00:00:00",
+              "subject": "Sinh học",
+              "category": "Tài Liệu",
+              "description": "Tài liệu hướng dẫn ôn thi tốt nghiệp THPT 2025 môn Sinh học.",
+              "views": 0,
+              "downloads": 0,
+              "class": "12",
+              "specialized": null,
+              "file_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEY0eXhDLN54rM0pE_7HgA3cez_PqID9pGlf9LY4GG7hHDVR1S4CHU8akBARX8uapXxwbf_UKrpwPb4b_5TcLNN2Kk9GUTA58j9NAMt1vcA7NwSsfvFTSlyrGpNeLmnfUdfJq-xTtCc2WDxLbOpKb0k0fgAb00rtvBFp3xpabMiZsGPvz-ADRd480tDrn4uayE5N9PDpdx9YeAqu7wv56XR5boN_0Gnzhtq",
+              "user_id": null,
+              "created_at": "2025-11-15 17:27:17",
+              "updated_at": "2025-11-15 17:27:17",
+              "teacher_id": null,
+              "subject_id": null,
+              "classroom_id": null
+            },
+            {
+              "id": 30,
+              "title": "Đề thi thử THPT Quốc gia 2020 môn Toán",
+              "author": "Sở GD&ĐT Hà Nội",
+              "date": "2025-11-14T00:00:00",
+              "subject": "Toán học",
+              "category": "Đề Thi",
+              "description": "Đề thi thử tốt nghiệp THPT 2020 lần 1 môn Toán của Sở GD&ĐT Hà Nội.",
+              "views": 0,
+              "downloads": 0,
+              "class": "12",
+              "specialized": null,
+              "file_url": "https://thptquocgia.edu.vn/download/De-thi-Dap-an-mon-Toan/De-thi-thu-tot-nghiep-THPT-2020-lan-1-mon-Toan-cua-So-GD-DT-Ha-Noi.html",
+              "user_id": null,
+              "created_at": "2025-11-15 17:27:17",
+              "updated_at": "2025-11-15 17:27:17",
+              "teacher_id": null,
+              "subject_id": null,
+              "classroom_id": null
+            },
+            {
+              "id": 31,
+              "title": "Đề thi thử THPT Quốc gia 2020 môn Vật lý",
+              "author": "Trường THPT Lương Thế Vinh",
+              "date": "2025-11-14T00:00:00",
+              "subject": "Vật lý",
+              "category": "Đề Thi",
+              "description": "Đề thi thử THPT Quốc gia môn Vật lý lần 1 - Mã đề 001.",
+              "views": 0,
+              "downloads": 0,
+              "class": "12",
+              "specialized": null,
+              "file_url": "https://dethi.edu.vn/28-de-thi-thu-thpt-quoc-gia-mon-vat-ly-nam-2020-co-dap-an-18197/",
+              "user_id": null,
+              "created_at": "2025-11-15 17:27:17",
+              "updated_at": "2025-11-15 17:27:17",
+              "teacher_id": null,
+              "subject_id": null,
+              "classroom_id": null
+            },
+            {
+              "id": 32,
+              "title": "Đề thi thử THPT Quốc gia 2020 môn Sinh học",
+              "author": "Bộ Giáo dục và Đào tạo",
+              "date": "2025-11-14T00:00:00",
+              "subject": "Sinh học",
+              "category": "Đề Thi",
+              "description": "Đề thi thử THPT Quốc gia môn Sinh học năm 2020 - Đề số 22.",
+              "views": 0,
+              "downloads": 0,
+              "class": "12",
+              "specialized": null,
+              "file_url": "https://dethi.edu.vn/de-thi-thu-thpt-quoc-gia-mon-sinh-hoc-nam-2020-de-so-22-co-dap-an-8898/",
+              "user_id": null,
+              "created_at": "2025-11-15 17:27:17",
+              "updated_at": "2025-11-15 17:27:17",
+              "teacher_id": null,
+              "subject_id": null,
+              "classroom_id": null
+            },
+            {
+              "id": 33,
+              "title": "Đề thi thử THPT Quốc gia 2020 môn Địa lý",
+              "author": "Sở GD&ĐT Nam Định",
+              "date": "2025-11-14T00:00:00",
+              "subject": "Địa lý",
+              "category": "Đề Thi",
+              "description": "Đề thi thử Tốt nghiệp THPT môn Địa lý năm 2020 - Mã đề 201.",
+              "views": 0,
+              "downloads": 0,
+              "class": "12",
+              "specialized": null,
+              "file_url": "https://dethi.edu.vn/de-thi-thu-tot-nghiep-thpt-mon-dia-ly-nam-2020-ma-de-201-truong-thpt-dai-an-17700/",
+              "user_id": null,
+              "created_at": "2025-11-15 17:27:17",
+              "updated_at": "2025-11-15 17:27:17",
+              "teacher_id": null,
+              "subject_id": null,
+              "classroom_id": null
+            },
+            {
+              "id": 34,
+              "title": "Đề thi thử THPT Quốc gia 2020 môn Lịch sử",
+              "author": "Trường THPT Chuyên Nguyễn Trãi",
+              "date": "2025-11-14T00:00:00",
+              "subject": "Lịch sử",
+              "category": "Đề Thi",
+              "description": "Đề thi thử môn Lịch sử - Năm học 2019-2020.",
+              "views": 0,
+              "downloads": 0,
+              "class": "12",
+              "specialized": null,
+              "file_url": "https://chuyennguyentrai.edu.vn/de-thi-thu-mon-lich-su-lan-1-nam-hoc-2019-2020-tin1099",
+              "user_id": null,
+              "created_at": "2025-11-15 17:27:17",
+              "updated_at": "2025-11-15 17:27:17",
+              "teacher_id": null,
+              "subject_id": null,
+              "classroom_id": null
+            },
+            {
+              "id": 35,
+              "title": "Đề thi thử THPT Quốc gia 2020 môn Tin học",
+              "author": "Trường THPT Chuyên Nguyễn Trãi",
+              "date": "2025-11-14T00:00:00",
+              "subject": "Tin học",
+              "category": "Đề Thi",
+              "description": "Đề thi thử tốt nghiệp THPT Quốc gia - Lần 2 năm học 2020-2021 môn Tin học.",
+              "views": 0,
+              "downloads": 0,
+              "class": "12",
+              "specialized": null,
+              "file_url": "https://chuyennguyentrai.edu.vn/de-thi-thu-tot-nghiep-thpt-quoc-gia-lan-2-nam-hoc-2020-2021-tin1615",
+              "user_id": null,
+              "created_at": "2025-11-15 17:27:17",
+              "updated_at": "2025-11-15 17:27:17",
+              "teacher_id": null,
+              "subject_id": null,
+              "classroom_id": null
+            },
+            {
+              "id": 36,
+              "title": "Thi thử Tiếng Anh (Mock) 01",
+              "author": "NeuraViet",
+              "date": "2025-11-16T00:00:00",
+              "subject": "Tiếng Anh",
+              "category": "Thi Thử",
+              "description": "Bài thi thử Tiếng Anh 60 phút",
+              "views": 0,
+              "downloads": 0,
+              "class": "12",
+              "specialized": null,
+              "file_url": null,
+              "user_id": null,
+              "created_at": "2025-11-15 20:54:54",
+              "updated_at": "2025-11-15 20:54:54",
+              "teacher_id": null,
+              "subject_id": null,
+              "classroom_id": null
+            },
+            {
+              "id": 37,
+              "title": "Thi thử Toán (Mock) 01",
+              "author": "NeuraViet",
+              "date": "2025-11-16T00:00:00",
+              "subject": "Toán học",
+              "category": "Thi Thử",
+              "description": "Bài thi thử Toán 50 câu",
+              "views": 0,
+              "downloads": 0,
+              "class": "12",
+              "specialized": null,
+              "file_url": null,
+              "user_id": null,
+              "created_at": "2025-11-15 20:54:54",
+              "updated_at": "2025-11-15 20:54:54",
+              "teacher_id": null,
+              "subject_id": null,
+              "classroom_id": null
+            },
+            {
+              "id": 38,
+              "title": "Thi thử Vật lý (Mock) 01",
+              "author": "NeuraViet",
+              "date": "2025-11-16T00:00:00",
+              "subject": "Vật lý",
+              "category": "Thi Thử",
+              "description": "Bài thi thử Vật lý trắc nghiệm",
+              "views": 0,
+              "downloads": 0,
+              "class": "12",
+              "specialized": null,
+              "file_url": null,
+              "user_id": null,
+              "created_at": "2025-11-15 20:54:54",
+              "updated_at": "2025-11-15 20:54:54",
+              "teacher_id": null,
+              "subject_id": null,
+              "classroom_id": null
+            }
+          ],
+          "mock": null
+        },
+        "question_answers": {
+          "create_sql": "CREATE TABLE question_answers (\n    answer_id INTEGER PRIMARY KEY AUTOINCREMENT,\n    question_id INTEGER NOT NULL,\n    correct_answer TEXT NOT NULL,\n    FOREIGN KEY (question_id) REFERENCES questions(question_id)\n)",
+          "columns": [
+            {
+              "cid": 0,
+              "name": "answer_id",
+              "type": "INTEGER",
+              "notnull": 0,
+              "dflt_value": null,
+              "pk": 1
+            },
+            {
+              "cid": 1,
+              "name": "question_id",
+              "type": "INTEGER",
+              "notnull": 1,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 2,
+              "name": "correct_answer",
+              "type": "TEXT",
+              "notnull": 1,
+              "dflt_value": null,
+              "pk": 0
+            }
+          ],
+          "row_count": 0,
+          "rows": [],
+          "mock": {
+            "answer_id": 1,
+            "question_id": 1,
+            "correct_answer": "mock_correct_answer"
+          }
+        },
+        "question_options": {
+          "create_sql": "CREATE TABLE question_options (\n    option_id INTEGER PRIMARY KEY AUTOINCREMENT,\n    question_id INTEGER NOT NULL,\n    option_text TEXT NOT NULL,\n    is_correct BOOLEAN DEFAULT 0,\n    FOREIGN KEY (question_id) REFERENCES questions(question_id)\n)",
+          "columns": [
+            {
+              "cid": 0,
+              "name": "option_id",
+              "type": "INTEGER",
+              "notnull": 0,
+              "dflt_value": null,
+              "pk": 1
+            },
+            {
+              "cid": 1,
+              "name": "question_id",
+              "type": "INTEGER",
+              "notnull": 1,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 2,
+              "name": "option_text",
+              "type": "TEXT",
+              "notnull": 1,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 3,
+              "name": "is_correct",
+              "type": "BOOLEAN",
+              "notnull": 0,
+              "dflt_value": "0",
+              "pk": 0
+            }
+          ],
+          "row_count": 0,
+          "rows": [],
+          "mock": {
+            "option_id": 1,
+            "question_id": 1,
+            "option_text": "mock_option_text",
+            "is_correct": 1
+          }
+        },
+        "questions": {
+          "create_sql": "CREATE TABLE questions (\n    question_id INTEGER PRIMARY KEY AUTOINCREMENT,\n    exam_id INTEGER,\n    question_text TEXT NOT NULL,\n    question_type TEXT CHECK(question_type IN ('multiple_choice','true_false','short_answer')) NOT NULL,\n    points REAL DEFAULT 1,\n    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,\n    FOREIGN KEY (exam_id) REFERENCES exams(id)\n)",
+          "columns": [
+            {
+              "cid": 0,
+              "name": "question_id",
+              "type": "INTEGER",
+              "notnull": 0,
+              "dflt_value": null,
+              "pk": 1
+            },
+            {
+              "cid": 1,
+              "name": "exam_id",
+              "type": "INTEGER",
+              "notnull": 0,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 2,
+              "name": "question_text",
+              "type": "TEXT",
+              "notnull": 1,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 3,
+              "name": "question_type",
+              "type": "TEXT",
+              "notnull": 1,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 4,
+              "name": "points",
+              "type": "REAL",
+              "notnull": 0,
+              "dflt_value": "1",
+              "pk": 0
+            },
+            {
+              "cid": 5,
+              "name": "created_at",
+              "type": "DATETIME",
+              "notnull": 0,
+              "dflt_value": "CURRENT_TIMESTAMP",
+              "pk": 0
+            }
+          ],
+          "row_count": 0,
+          "rows": [],
+          "mock": {
+            "question_id": 1,
+            "exam_id": 1,
+            "question_text": "mock_question_text",
+            "question_type": "mock_question_type",
+            "points": 0,
+            "created_at": "2025-11-16T22:20:10"
+          }
+        },
+        "subjects": {
+          "create_sql": "CREATE TABLE subjects ( id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL UNIQUE, description TEXT, parent_id INTEGER, created_at DATETIME DEFAULT CURRENT_TIMESTAMP, FOREIGN KEY (parent_id) REFERENCES subjects(id) )",
+          "columns": [
+            {
+              "cid": 0,
+              "name": "id",
+              "type": "INTEGER",
+              "notnull": 0,
+              "dflt_value": null,
+              "pk": 1
+            },
+            {
+              "cid": 1,
+              "name": "name",
+              "type": "TEXT",
+              "notnull": 1,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 2,
+              "name": "description",
+              "type": "TEXT",
+              "notnull": 0,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 3,
+              "name": "parent_id",
+              "type": "INTEGER",
+              "notnull": 0,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 4,
+              "name": "created_at",
+              "type": "DATETIME",
+              "notnull": 0,
+              "dflt_value": "CURRENT_TIMESTAMP",
+              "pk": 0
+            }
+          ],
+          "row_count": 9,
+          "rows": [
+            {
+              "id": 1,
+              "name": "Toán học",
+              "description": "Các bài học và tài liệu về Toán học",
+              "parent_id": null,
+              "created_at": "2025-11-15 12:50:55"
+            },
+            {
+              "id": 2,
+              "name": "Vật lý",
+              "description": "Các bài học và tài liệu về Vật lý",
+              "parent_id": null,
+              "created_at": "2025-11-15 12:50:55"
+            },
+            {
+              "id": 3,
+              "name": "Hóa học",
+              "description": "Các bài học và tài liệu về Hóa học",
+              "parent_id": null,
+              "created_at": "2025-11-15 12:50:55"
+            },
+            {
+              "id": 4,
+              "name": "Sinh học",
+              "description": "Các bài học và tài liệu về Sinh học",
+              "parent_id": null,
+              "created_at": "2025-11-15 12:50:55"
+            },
+            {
+              "id": 5,
+              "name": "Ngữ văn",
+              "description": "Các bài học và tài liệu về Ngữ văn",
+              "parent_id": null,
+              "created_at": "2025-11-15 12:50:55"
+            },
+            {
+              "id": 6,
+              "name": "Tiếng Anh",
+              "description": "Các bài học và tài liệu về Tiếng Anh",
+              "parent_id": null,
+              "created_at": "2025-11-15 12:50:55"
+            },
+            {
+              "id": 7,
+              "name": "Lịch sử",
+              "description": "Các bài học và tài liệu về Lịch sử",
+              "parent_id": null,
+              "created_at": "2025-11-15 12:50:55"
+            },
+            {
+              "id": 8,
+              "name": "Địa lý",
+              "description": "Các bài học và tài liệu về Địa lý",
+              "parent_id": null,
+              "created_at": "2025-11-15 12:50:55"
+            },
+            {
+              "id": 9,
+              "name": "Tin học",
+              "description": "Các bài học và tài liệu về Tin học",
+              "parent_id": null,
+              "created_at": "2025-11-15 12:50:55"
+            }
+          ],
+          "mock": null
+        },
+        "users": {
+          "create_sql": "CREATE TABLE users (\n    id INTEGER PRIMARY KEY AUTOINCREMENT,\n    fullname TEXT NOT NULL,\n    email TEXT UNIQUE NOT NULL,\n    phone TEXT NOT NULL,\n    password_hash TEXT NOT NULL,\n    is_active BOOLEAN DEFAULT 1,\n    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,\n    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP\n, role TEXT DEFAULT 'student' CHECK(role IN ('student', 'teacher', 'admin')))",
+          "columns": [
+            {
+              "cid": 0,
+              "name": "id",
+              "type": "INTEGER",
+              "notnull": 0,
+              "dflt_value": null,
+              "pk": 1
+            },
+            {
+              "cid": 1,
+              "name": "fullname",
+              "type": "TEXT",
+              "notnull": 1,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 2,
+              "name": "email",
+              "type": "TEXT",
+              "notnull": 1,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 3,
+              "name": "phone",
+              "type": "TEXT",
+              "notnull": 1,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 4,
+              "name": "password_hash",
+              "type": "TEXT",
+              "notnull": 1,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 5,
+              "name": "is_active",
+              "type": "BOOLEAN",
+              "notnull": 0,
+              "dflt_value": "1",
+              "pk": 0
+            },
+            {
+              "cid": 6,
+              "name": "created_at",
+              "type": "DATETIME",
+              "notnull": 0,
+              "dflt_value": "CURRENT_TIMESTAMP",
+              "pk": 0
+            },
+            {
+              "cid": 7,
+              "name": "updated_at",
+              "type": "DATETIME",
+              "notnull": 0,
+              "dflt_value": "CURRENT_TIMESTAMP",
+              "pk": 0
+            },
+            {
+              "cid": 8,
+              "name": "role",
+              "type": "TEXT",
+              "notnull": 0,
+              "dflt_value": "'student'",
+              "pk": 0
+            }
+          ],
+          "row_count": 1,
+          "rows": [
+            {
+              "id": 1,
+              "fullname": "Admin User",
+              "email": "admin@test.com",
+              "phone": "0123456789",
+              "password_hash": "$2b$12$R9lC//rho.ZmVOi/qcDKv.uGWP5Z9TCB5EMM0rtAGRddakakC53oS",
+              "is_active": 1,
+              "created_at": "2025-11-15 12:51:31",
+              "updated_at": "2025-11-15 12:51:31",
+              "role": "admin"
+            }
+          ],
+          "mock": null
+        }
+      },
+      "summary": {
+        "classroom_exams": 0,
+        "classroom_posts": 0,
+        "classroom_students": 0,
+        "classrooms": 0,
+        "exam_questions": 0,
+        "exams": 0,
+        "notification_reads": 0,
+        "notifications": 0,
+        "password_reset_tokens": 0,
+        "posts": 38,
+        "question_answers": 0,
+        "question_options": 0,
+        "questions": 0,
+        "subjects": 9,
+        "users": 1
+      }
+    },
+    "sqlite_root": {
+      "exists": true,
+      "path": "db.sqlite",
+      "tables": {
+        "classroom_exams": {
+          "create_sql": "CREATE TABLE classroom_exams ( classroom_id INTEGER NOT NULL, exam_id INTEGER NOT NULL, assigned_at DATETIME DEFAULT CURRENT_TIMESTAMP, due_date DATETIME, PRIMARY KEY (classroom_id, exam_id), FOREIGN KEY (classroom_id) REFERENCES classrooms(id) ON DELETE CASCADE, FOREIGN KEY (exam_id) REFERENCES exams(id) ON DELETE CASCADE )",
+          "columns": [
+            {
+              "cid": 0,
+              "name": "classroom_id",
+              "type": "INTEGER",
+              "notnull": 1,
+              "dflt_value": null,
+              "pk": 1
+            },
+            {
+              "cid": 1,
+              "name": "exam_id",
+              "type": "INTEGER",
+              "notnull": 1,
+              "dflt_value": null,
+              "pk": 2
+            },
+            {
+              "cid": 2,
+              "name": "assigned_at",
+              "type": "DATETIME",
+              "notnull": 0,
+              "dflt_value": "CURRENT_TIMESTAMP",
+              "pk": 0
+            },
+            {
+              "cid": 3,
+              "name": "due_date",
+              "type": "DATETIME",
+              "notnull": 0,
+              "dflt_value": null,
+              "pk": 0
+            }
+          ],
+          "row_count": 0,
+          "rows": [],
+          "mock": {
+            "classroom_id": 1,
+            "exam_id": 1,
+            "assigned_at": "2025-11-16T22:20:10",
+            "due_date": "2025-11-16T22:20:10"
+          }
+        },
+        "classroom_posts": {
+          "create_sql": "CREATE TABLE classroom_posts ( classroom_id INTEGER NOT NULL, post_id INTEGER NOT NULL, assigned_at DATETIME DEFAULT CURRENT_TIMESTAMP, PRIMARY KEY (classroom_id, post_id), FOREIGN KEY (classroom_id) REFERENCES classrooms(id) ON DELETE CASCADE, FOREIGN KEY (post_id) REFERENCES posts(id) ON DELETE CASCADE )",
+          "columns": [
+            {
+              "cid": 0,
+              "name": "classroom_id",
+              "type": "INTEGER",
+              "notnull": 1,
+              "dflt_value": null,
+              "pk": 1
+            },
+            {
+              "cid": 1,
+              "name": "post_id",
+              "type": "INTEGER",
+              "notnull": 1,
+              "dflt_value": null,
+              "pk": 2
+            },
+            {
+              "cid": 2,
+              "name": "assigned_at",
+              "type": "DATETIME",
+              "notnull": 0,
+              "dflt_value": "CURRENT_TIMESTAMP",
+              "pk": 0
+            }
+          ],
+          "row_count": 3,
+          "rows": [
+            {
+              "classroom_id": 4,
+              "post_id": 1,
+              "assigned_at": "2025-11-15 10:16:44"
+            },
+            {
+              "classroom_id": 5,
+              "post_id": 2,
+              "assigned_at": "2025-11-15 10:17:03"
+            },
+            {
+              "classroom_id": 6,
+              "post_id": 3,
+              "assigned_at": "2025-11-15 10:17:27"
+            }
+          ],
+          "mock": null
+        },
+        "classroom_students": {
+          "create_sql": "CREATE TABLE classroom_students ( classroom_id INTEGER NOT NULL, student_id INTEGER NOT NULL, joined_at DATETIME DEFAULT CURRENT_TIMESTAMP, PRIMARY KEY (classroom_id, student_id), FOREIGN KEY (classroom_id) REFERENCES classrooms(id) ON DELETE CASCADE, FOREIGN KEY (student_id) REFERENCES users(id) ON DELETE CASCADE )",
+          "columns": [
+            {
+              "cid": 0,
+              "name": "classroom_id",
+              "type": "INTEGER",
+              "notnull": 1,
+              "dflt_value": null,
+              "pk": 1
+            },
+            {
+              "cid": 1,
+              "name": "student_id",
+              "type": "INTEGER",
+              "notnull": 1,
+              "dflt_value": null,
+              "pk": 2
+            },
+            {
+              "cid": 2,
+              "name": "joined_at",
+              "type": "DATETIME",
+              "notnull": 0,
+              "dflt_value": "CURRENT_TIMESTAMP",
+              "pk": 0
+            }
+          ],
+          "row_count": 1,
+          "rows": [
+            {
+              "classroom_id": 6,
+              "student_id": 2,
+              "joined_at": "2025-11-15 10:17:27"
+            }
+          ],
+          "mock": null
+        },
+        "classrooms": {
+          "create_sql": "CREATE TABLE classrooms ( id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL, description TEXT, subject TEXT, teacher_id INTEGER NOT NULL, code TEXT UNIQUE NOT NULL, is_active BOOLEAN DEFAULT 1, created_at DATETIME DEFAULT CURRENT_TIMESTAMP, updated_at DATETIME DEFAULT CURRENT_TIMESTAMP, FOREIGN KEY (teacher_id) REFERENCES users(id) )",
+          "columns": [
+            {
+              "cid": 0,
+              "name": "id",
+              "type": "INTEGER",
+              "notnull": 0,
+              "dflt_value": null,
+              "pk": 1
+            },
+            {
+              "cid": 1,
+              "name": "name",
+              "type": "TEXT",
+              "notnull": 1,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 2,
+              "name": "description",
+              "type": "TEXT",
+              "notnull": 0,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 3,
+              "name": "subject",
+              "type": "TEXT",
+              "notnull": 0,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 4,
+              "name": "teacher_id",
+              "type": "INTEGER",
+              "notnull": 1,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 5,
+              "name": "code",
+              "type": "TEXT",
+              "notnull": 1,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 6,
+              "name": "is_active",
+              "type": "BOOLEAN",
+              "notnull": 0,
+              "dflt_value": "1",
+              "pk": 0
+            },
+            {
+              "cid": 7,
+              "name": "created_at",
+              "type": "DATETIME",
+              "notnull": 0,
+              "dflt_value": "CURRENT_TIMESTAMP",
+              "pk": 0
+            },
+            {
+              "cid": 8,
+              "name": "updated_at",
+              "type": "DATETIME",
+              "notnull": 0,
+              "dflt_value": "CURRENT_TIMESTAMP",
+              "pk": 0
+            }
+          ],
+          "row_count": 6,
+          "rows": [
+            {
+              "id": 1,
+              "name": "Lớp Toán 12A1",
+              "description": "Lớp học Toán cao cấp",
+              "subject": "Toán học",
+              "teacher_id": 3,
+              "code": "WXOQC2",
+              "is_active": 1,
+              "created_at": "2025-11-15 10:12:27",
+              "updated_at": "2025-11-15 10:12:27"
+            },
+            {
+              "id": 2,
+              "name": "Lớp Toán 12A1",
+              "description": "Lớp học Toán cao cấp",
+              "subject": "Toán học",
+              "teacher_id": 3,
+              "code": "Q0OMAK",
+              "is_active": 1,
+              "created_at": "2025-11-15 10:13:50",
+              "updated_at": "2025-11-15 10:13:50"
+            },
+            {
+              "id": 3,
+              "name": "Lớp Toán 12A1",
+              "description": "Lớp học Toán cao cấp",
+              "subject": "Toán học",
+              "teacher_id": 3,
+              "code": "70P8QR",
+              "is_active": 1,
+              "created_at": "2025-11-15 10:16:13",
+              "updated_at": "2025-11-15 10:16:13"
+            },
+            {
+              "id": 4,
+              "name": "Lớp Toán 12A1",
+              "description": "Lớp học Toán cao cấp",
+              "subject": "Toán học",
+              "teacher_id": 3,
+              "code": "NARLRZ",
+              "is_active": 1,
+              "created_at": "2025-11-15 10:16:44",
+              "updated_at": "2025-11-15 10:16:44"
+            },
+            {
+              "id": 5,
+              "name": "Lớp Toán 12A1",
+              "description": "Lớp học Toán cao cấp",
+              "subject": "Toán học",
+              "teacher_id": 3,
+              "code": "D5DVJZ",
+              "is_active": 1,
+              "created_at": "2025-11-15 10:17:03",
+              "updated_at": "2025-11-15 10:17:03"
+            },
+            {
+              "id": 6,
+              "name": "Lớp Toán 12A1",
+              "description": "Lớp học Toán cao cấp",
+              "subject": "Toán học",
+              "teacher_id": 3,
+              "code": "49TTM8",
+              "is_active": 1,
+              "created_at": "2025-11-15 10:17:27",
+              "updated_at": "2025-11-15 10:17:27"
+            }
+          ],
+          "mock": null
+        },
+        "exam_questions": {
+          "create_sql": "CREATE TABLE exam_questions (\n    exam_id INTEGER,\n    question_id INTEGER,\n    order_index INTEGER,\n    PRIMARY KEY (exam_id, question_id),\n    FOREIGN KEY (exam_id) REFERENCES exams(id),\n    FOREIGN KEY (question_id) REFERENCES questions(question_id)\n)",
+          "columns": [
+            {
+              "cid": 0,
+              "name": "exam_id",
+              "type": "INTEGER",
+              "notnull": 0,
+              "dflt_value": null,
+              "pk": 1
+            },
+            {
+              "cid": 1,
+              "name": "question_id",
+              "type": "INTEGER",
+              "notnull": 0,
+              "dflt_value": null,
+              "pk": 2
+            },
+            {
+              "cid": 2,
+              "name": "order_index",
+              "type": "INTEGER",
+              "notnull": 0,
+              "dflt_value": null,
+              "pk": 0
+            }
+          ],
+          "row_count": 0,
+          "rows": [],
+          "mock": {
+            "exam_id": 1,
+            "question_id": 1,
+            "order_index": 0
+          }
+        },
+        "exams": {
+          "create_sql": "CREATE TABLE exams (\n    id INTEGER PRIMARY KEY AUTOINCREMENT,\n    title TEXT NOT NULL,\n    author TEXT NOT NULL,\n    subject TEXT NOT NULL,\n    description TEXT,\n    duration_min INTEGER,\n    file_url TEXT,\n    answer_file_url TEXT,\n    created_by INTEGER,\n    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,\n    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP, teacher_id INTEGER, subject_id INTEGER,\n    FOREIGN KEY (created_by) REFERENCES users(id)\n)",
+          "columns": [
+            {
+              "cid": 0,
+              "name": "id",
+              "type": "INTEGER",
+              "notnull": 0,
+              "dflt_value": null,
+              "pk": 1
+            },
+            {
+              "cid": 1,
+              "name": "title",
+              "type": "TEXT",
+              "notnull": 1,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 2,
+              "name": "author",
+              "type": "TEXT",
+              "notnull": 1,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 3,
+              "name": "subject",
+              "type": "TEXT",
+              "notnull": 1,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 4,
+              "name": "description",
+              "type": "TEXT",
+              "notnull": 0,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 5,
+              "name": "duration_min",
+              "type": "INTEGER",
+              "notnull": 0,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 6,
+              "name": "file_url",
+              "type": "TEXT",
+              "notnull": 0,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 7,
+              "name": "answer_file_url",
+              "type": "TEXT",
+              "notnull": 0,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 8,
+              "name": "created_by",
+              "type": "INTEGER",
+              "notnull": 0,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 9,
+              "name": "created_at",
+              "type": "DATETIME",
+              "notnull": 0,
+              "dflt_value": "CURRENT_TIMESTAMP",
+              "pk": 0
+            },
+            {
+              "cid": 10,
+              "name": "updated_at",
+              "type": "DATETIME",
+              "notnull": 0,
+              "dflt_value": "CURRENT_TIMESTAMP",
+              "pk": 0
+            },
+            {
+              "cid": 11,
+              "name": "teacher_id",
+              "type": "INTEGER",
+              "notnull": 0,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 12,
+              "name": "subject_id",
+              "type": "INTEGER",
+              "notnull": 0,
+              "dflt_value": null,
+              "pk": 0
+            }
+          ],
+          "row_count": 0,
+          "rows": [],
+          "mock": {
+            "id": 1,
+            "title": "mock_title",
+            "author": "mock_author",
+            "subject": "mock_subject",
+            "description": "mock_description",
+            "duration_min": 0,
+            "file_url": "mock_file_url",
+            "answer_file_url": "mock_answer_file_url",
+            "created_by": 1,
+            "created_at": "2025-11-16T22:20:10",
+            "updated_at": "2025-11-16T22:20:10",
+            "teacher_id": 1,
+            "subject_id": 1
+          }
+        },
+        "notification_reads": {
+          "create_sql": "CREATE TABLE notification_reads ( notification_id INTEGER NOT NULL, student_id INTEGER NOT NULL, read_at DATETIME DEFAULT CURRENT_TIMESTAMP, PRIMARY KEY (notification_id, student_id), FOREIGN KEY (notification_id) REFERENCES notifications(id) ON DELETE CASCADE, FOREIGN KEY (student_id) REFERENCES users(id) ON DELETE CASCADE )",
+          "columns": [
+            {
+              "cid": 0,
+              "name": "notification_id",
+              "type": "INTEGER",
+              "notnull": 1,
+              "dflt_value": null,
+              "pk": 1
+            },
+            {
+              "cid": 1,
+              "name": "student_id",
+              "type": "INTEGER",
+              "notnull": 1,
+              "dflt_value": null,
+              "pk": 2
+            },
+            {
+              "cid": 2,
+              "name": "read_at",
+              "type": "DATETIME",
+              "notnull": 0,
+              "dflt_value": "CURRENT_TIMESTAMP",
+              "pk": 0
+            }
+          ],
+          "row_count": 1,
+          "rows": [
+            {
+              "notification_id": 3,
+              "student_id": 2,
+              "read_at": "2025-11-15 10:17:27"
+            }
+          ],
+          "mock": null
+        },
+        "notifications": {
+          "create_sql": "CREATE TABLE notifications ( id INTEGER PRIMARY KEY AUTOINCREMENT, classroom_id INTEGER NOT NULL, title TEXT NOT NULL, content TEXT NOT NULL, created_by INTEGER NOT NULL, is_announcement BOOLEAN DEFAULT 0, created_at DATETIME DEFAULT CURRENT_TIMESTAMP, FOREIGN KEY (classroom_id) REFERENCES classrooms(id) ON DELETE CASCADE, FOREIGN KEY (created_by) REFERENCES users(id) )",
+          "columns": [
+            {
+              "cid": 0,
+              "name": "id",
+              "type": "INTEGER",
+              "notnull": 0,
+              "dflt_value": null,
+              "pk": 1
+            },
+            {
+              "cid": 1,
+              "name": "classroom_id",
+              "type": "INTEGER",
+              "notnull": 1,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 2,
+              "name": "title",
+              "type": "TEXT",
+              "notnull": 1,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 3,
+              "name": "content",
+              "type": "TEXT",
+              "notnull": 1,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 4,
+              "name": "created_by",
+              "type": "INTEGER",
+              "notnull": 1,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 5,
+              "name": "is_announcement",
+              "type": "BOOLEAN",
+              "notnull": 0,
+              "dflt_value": "0",
+              "pk": 0
+            },
+            {
+              "cid": 6,
+              "name": "created_at",
+              "type": "DATETIME",
+              "notnull": 0,
+              "dflt_value": "CURRENT_TIMESTAMP",
+              "pk": 0
+            }
+          ],
+          "row_count": 3,
+          "rows": [
+            {
+              "id": 1,
+              "classroom_id": 4,
+              "title": "Thông báo quan trọng",
+              "content": "Ngày mai có bài kiểm tra giữa kỳ. Các em chuẩn bị kỹ nhé!",
+              "created_by": 3,
+              "is_announcement": 1,
+              "created_at": "2025-11-15 10:16:44"
+            },
+            {
+              "id": 2,
+              "classroom_id": 5,
+              "title": "Thông báo quan trọng",
+              "content": "Ngày mai có bài kiểm tra giữa kỳ. Các em chuẩn bị kỹ nhé!",
+              "created_by": 3,
+              "is_announcement": 1,
+              "created_at": "2025-11-15 10:17:03"
+            },
+            {
+              "id": 3,
+              "classroom_id": 6,
+              "title": "Thông báo quan trọng",
+              "content": "Ngày mai có bài kiểm tra giữa kỳ. Các em chuẩn bị kỹ nhé!",
+              "created_by": 3,
+              "is_announcement": 1,
+              "created_at": "2025-11-15 10:17:27"
+            }
+          ],
+          "mock": null
+        },
+        "password_reset_tokens": {
+          "create_sql": "CREATE TABLE password_reset_tokens (\n    id INTEGER PRIMARY KEY AUTOINCREMENT,\n    user_id INTEGER NOT NULL,\n    token TEXT NOT NULL,\n    expires_at DATETIME NOT NULL,\n    used BOOLEAN DEFAULT 0,\n    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,\n    FOREIGN KEY (user_id) REFERENCES users(id)\n)",
+          "columns": [
+            {
+              "cid": 0,
+              "name": "id",
+              "type": "INTEGER",
+              "notnull": 0,
+              "dflt_value": null,
+              "pk": 1
+            },
+            {
+              "cid": 1,
+              "name": "user_id",
+              "type": "INTEGER",
+              "notnull": 1,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 2,
+              "name": "token",
+              "type": "TEXT",
+              "notnull": 1,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 3,
+              "name": "expires_at",
+              "type": "DATETIME",
+              "notnull": 1,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 4,
+              "name": "used",
+              "type": "BOOLEAN",
+              "notnull": 0,
+              "dflt_value": "0",
+              "pk": 0
+            },
+            {
+              "cid": 5,
+              "name": "created_at",
+              "type": "DATETIME",
+              "notnull": 0,
+              "dflt_value": "CURRENT_TIMESTAMP",
+              "pk": 0
+            }
+          ],
+          "row_count": 0,
+          "rows": [],
+          "mock": {
+            "id": 1,
+            "user_id": 1,
+            "token": "mock_token",
+            "expires_at": "2025-11-16T22:20:10",
+            "used": 1,
+            "created_at": "2025-11-16T22:20:10"
+          }
+        },
+        "posts": {
+          "create_sql": "CREATE TABLE posts (\n    id INTEGER PRIMARY KEY AUTOINCREMENT,\n    title TEXT NOT NULL,\n    author TEXT NOT NULL,\n    date TEXT NOT NULL,\n    subject TEXT NOT NULL,\n    category TEXT NOT NULL,\n    description TEXT,\n    views INTEGER DEFAULT 0,\n    downloads INTEGER DEFAULT 0,\n    class TEXT,\n    specialized TEXT,\n    file_url TEXT,\n    user_id INTEGER,\n    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,\n    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP, teacher_id INTEGER, subject_id INTEGER, classroom_id INTEGER,\n    FOREIGN KEY (user_id) REFERENCES users(id)\n)",
+          "columns": [
+            {
+              "cid": 0,
+              "name": "id",
+              "type": "INTEGER",
+              "notnull": 0,
+              "dflt_value": null,
+              "pk": 1
+            },
+            {
+              "cid": 1,
+              "name": "title",
+              "type": "TEXT",
+              "notnull": 1,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 2,
+              "name": "author",
+              "type": "TEXT",
+              "notnull": 1,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 3,
+              "name": "date",
+              "type": "TEXT",
+              "notnull": 1,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 4,
+              "name": "subject",
+              "type": "TEXT",
+              "notnull": 1,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 5,
+              "name": "category",
+              "type": "TEXT",
+              "notnull": 1,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 6,
+              "name": "description",
+              "type": "TEXT",
+              "notnull": 0,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 7,
+              "name": "views",
+              "type": "INTEGER",
+              "notnull": 0,
+              "dflt_value": "0",
+              "pk": 0
+            },
+            {
+              "cid": 8,
+              "name": "downloads",
+              "type": "INTEGER",
+              "notnull": 0,
+              "dflt_value": "0",
+              "pk": 0
+            },
+            {
+              "cid": 9,
+              "name": "class",
+              "type": "TEXT",
+              "notnull": 0,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 10,
+              "name": "specialized",
+              "type": "TEXT",
+              "notnull": 0,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 11,
+              "name": "file_url",
+              "type": "TEXT",
+              "notnull": 0,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 12,
+              "name": "user_id",
+              "type": "INTEGER",
+              "notnull": 0,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 13,
+              "name": "created_at",
+              "type": "DATETIME",
+              "notnull": 0,
+              "dflt_value": "CURRENT_TIMESTAMP",
+              "pk": 0
+            },
+            {
+              "cid": 14,
+              "name": "updated_at",
+              "type": "DATETIME",
+              "notnull": 0,
+              "dflt_value": "CURRENT_TIMESTAMP",
+              "pk": 0
+            },
+            {
+              "cid": 15,
+              "name": "teacher_id",
+              "type": "INTEGER",
+              "notnull": 0,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 16,
+              "name": "subject_id",
+              "type": "INTEGER",
+              "notnull": 0,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 17,
+              "name": "classroom_id",
+              "type": "INTEGER",
+              "notnull": 0,
+              "dflt_value": null,
+              "pk": 0
+            }
+          ],
+          "row_count": 3,
+          "rows": [
+            {
+              "id": 1,
+              "title": "Bài học về Đạo hàm",
+              "author": "Teacher User",
+              "date": "2024-11-15",
+              "subject": "Toán học",
+              "category": "Bài giảng",
+              "description": "Giới thiệu về đạo hàm và ứng dụng",
+              "views": 0,
+              "downloads": 0,
+              "class": null,
+              "specialized": "Toán cao cấp",
+              "file_url": null,
+              "user_id": 3,
+              "created_at": "2025-11-15 10:16:44",
+              "updated_at": "2025-11-15 10:16:44",
+              "teacher_id": 3,
+              "subject_id": null,
+              "classroom_id": null
+            },
+            {
+              "id": 2,
+              "title": "Bài học về Đạo hàm",
+              "author": "Teacher User",
+              "date": "2024-11-15",
+              "subject": "Toán học",
+              "category": "Bài giảng",
+              "description": "Giới thiệu về đạo hàm và ứng dụng",
+              "views": 0,
+              "downloads": 0,
+              "class": null,
+              "specialized": "Toán cao cấp",
+              "file_url": null,
+              "user_id": 3,
+              "created_at": "2025-11-15 10:17:03",
+              "updated_at": "2025-11-15 10:17:03",
+              "teacher_id": 3,
+              "subject_id": null,
+              "classroom_id": null
+            },
+            {
+              "id": 3,
+              "title": "Bài học về Đạo hàm",
+              "author": "Teacher User",
+              "date": "2024-11-15",
+              "subject": "Toán học",
+              "category": "Bài giảng",
+              "description": "Giới thiệu về đạo hàm và ứng dụng",
+              "views": 0,
+              "downloads": 0,
+              "class": null,
+              "specialized": "Toán cao cấp",
+              "file_url": null,
+              "user_id": 3,
+              "created_at": "2025-11-15 10:17:27",
+              "updated_at": "2025-11-15 10:17:27",
+              "teacher_id": 3,
+              "subject_id": null,
+              "classroom_id": null
+            }
+          ],
+          "mock": null
+        },
+        "question_answers": {
+          "create_sql": "CREATE TABLE question_answers (\n    answer_id INTEGER PRIMARY KEY AUTOINCREMENT,\n    question_id INTEGER NOT NULL,\n    correct_answer TEXT NOT NULL,\n    FOREIGN KEY (question_id) REFERENCES questions(question_id)\n)",
+          "columns": [
+            {
+              "cid": 0,
+              "name": "answer_id",
+              "type": "INTEGER",
+              "notnull": 0,
+              "dflt_value": null,
+              "pk": 1
+            },
+            {
+              "cid": 1,
+              "name": "question_id",
+              "type": "INTEGER",
+              "notnull": 1,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 2,
+              "name": "correct_answer",
+              "type": "TEXT",
+              "notnull": 1,
+              "dflt_value": null,
+              "pk": 0
+            }
+          ],
+          "row_count": 0,
+          "rows": [],
+          "mock": {
+            "answer_id": 1,
+            "question_id": 1,
+            "correct_answer": "mock_correct_answer"
+          }
+        },
+        "question_options": {
+          "create_sql": "CREATE TABLE question_options (\n    option_id INTEGER PRIMARY KEY AUTOINCREMENT,\n    question_id INTEGER NOT NULL,\n    option_text TEXT NOT NULL,\n    is_correct BOOLEAN DEFAULT 0,\n    FOREIGN KEY (question_id) REFERENCES questions(question_id)\n)",
+          "columns": [
+            {
+              "cid": 0,
+              "name": "option_id",
+              "type": "INTEGER",
+              "notnull": 0,
+              "dflt_value": null,
+              "pk": 1
+            },
+            {
+              "cid": 1,
+              "name": "question_id",
+              "type": "INTEGER",
+              "notnull": 1,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 2,
+              "name": "option_text",
+              "type": "TEXT",
+              "notnull": 1,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 3,
+              "name": "is_correct",
+              "type": "BOOLEAN",
+              "notnull": 0,
+              "dflt_value": "0",
+              "pk": 0
+            }
+          ],
+          "row_count": 0,
+          "rows": [],
+          "mock": {
+            "option_id": 1,
+            "question_id": 1,
+            "option_text": "mock_option_text",
+            "is_correct": 1
+          }
+        },
+        "questions": {
+          "create_sql": "CREATE TABLE questions (\n    question_id INTEGER PRIMARY KEY AUTOINCREMENT,\n    exam_id INTEGER,\n    question_text TEXT NOT NULL,\n    question_type TEXT CHECK(question_type IN ('multiple_choice','true_false','short_answer')) NOT NULL,\n    points REAL DEFAULT 1,\n    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,\n    FOREIGN KEY (exam_id) REFERENCES exams(id)\n)",
+          "columns": [
+            {
+              "cid": 0,
+              "name": "question_id",
+              "type": "INTEGER",
+              "notnull": 0,
+              "dflt_value": null,
+              "pk": 1
+            },
+            {
+              "cid": 1,
+              "name": "exam_id",
+              "type": "INTEGER",
+              "notnull": 0,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 2,
+              "name": "question_text",
+              "type": "TEXT",
+              "notnull": 1,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 3,
+              "name": "question_type",
+              "type": "TEXT",
+              "notnull": 1,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 4,
+              "name": "points",
+              "type": "REAL",
+              "notnull": 0,
+              "dflt_value": "1",
+              "pk": 0
+            },
+            {
+              "cid": 5,
+              "name": "created_at",
+              "type": "DATETIME",
+              "notnull": 0,
+              "dflt_value": "CURRENT_TIMESTAMP",
+              "pk": 0
+            }
+          ],
+          "row_count": 0,
+          "rows": [],
+          "mock": {
+            "question_id": 1,
+            "exam_id": 1,
+            "question_text": "mock_question_text",
+            "question_type": "mock_question_type",
+            "points": 0,
+            "created_at": "2025-11-16T22:20:10"
+          }
+        },
+        "subjects": {
+          "create_sql": "CREATE TABLE subjects ( id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL UNIQUE, description TEXT, parent_id INTEGER, created_at DATETIME DEFAULT CURRENT_TIMESTAMP, FOREIGN KEY (parent_id) REFERENCES subjects(id) )",
+          "columns": [
+            {
+              "cid": 0,
+              "name": "id",
+              "type": "INTEGER",
+              "notnull": 0,
+              "dflt_value": null,
+              "pk": 1
+            },
+            {
+              "cid": 1,
+              "name": "name",
+              "type": "TEXT",
+              "notnull": 1,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 2,
+              "name": "description",
+              "type": "TEXT",
+              "notnull": 0,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 3,
+              "name": "parent_id",
+              "type": "INTEGER",
+              "notnull": 0,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 4,
+              "name": "created_at",
+              "type": "DATETIME",
+              "notnull": 0,
+              "dflt_value": "CURRENT_TIMESTAMP",
+              "pk": 0
+            }
+          ],
+          "row_count": 9,
+          "rows": [
+            {
+              "id": 1,
+              "name": "Toán học",
+              "description": "Các bài học và tài liệu về Toán học",
+              "parent_id": null,
+              "created_at": "2025-11-15 09:56:17"
+            },
+            {
+              "id": 2,
+              "name": "Vật lý",
+              "description": "Các bài học và tài liệu về Vật lý",
+              "parent_id": null,
+              "created_at": "2025-11-15 09:56:17"
+            },
+            {
+              "id": 3,
+              "name": "Hóa học",
+              "description": "Các bài học và tài liệu về Hóa học",
+              "parent_id": null,
+              "created_at": "2025-11-15 09:56:17"
+            },
+            {
+              "id": 4,
+              "name": "Sinh học",
+              "description": "Các bài học và tài liệu về Sinh học",
+              "parent_id": null,
+              "created_at": "2025-11-15 09:56:17"
+            },
+            {
+              "id": 5,
+              "name": "Ngữ văn",
+              "description": "Các bài học và tài liệu về Ngữ văn",
+              "parent_id": null,
+              "created_at": "2025-11-15 09:56:17"
+            },
+            {
+              "id": 6,
+              "name": "Tiếng Anh",
+              "description": "Các bài học và tài liệu về Tiếng Anh",
+              "parent_id": null,
+              "created_at": "2025-11-15 09:56:17"
+            },
+            {
+              "id": 7,
+              "name": "Lịch sử",
+              "description": "Các bài học và tài liệu về Lịch sử",
+              "parent_id": null,
+              "created_at": "2025-11-15 09:56:17"
+            },
+            {
+              "id": 8,
+              "name": "Địa lý",
+              "description": "Các bài học và tài liệu về Địa lý",
+              "parent_id": null,
+              "created_at": "2025-11-15 09:56:17"
+            },
+            {
+              "id": 9,
+              "name": "Tin học",
+              "description": "Các bài học và tài liệu về Tin học",
+              "parent_id": null,
+              "created_at": "2025-11-15 09:56:17"
+            }
+          ],
+          "mock": null
+        },
+        "users": {
+          "create_sql": "CREATE TABLE users (\n    id INTEGER PRIMARY KEY AUTOINCREMENT,\n    fullname TEXT NOT NULL,\n    email TEXT UNIQUE NOT NULL,\n    phone TEXT NOT NULL,\n    password_hash TEXT NOT NULL,\n    is_active BOOLEAN DEFAULT 1,\n    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,\n    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP\n, role TEXT DEFAULT 'student' CHECK(role IN ('student', 'teacher', 'admin')))",
+          "columns": [
+            {
+              "cid": 0,
+              "name": "id",
+              "type": "INTEGER",
+              "notnull": 0,
+              "dflt_value": null,
+              "pk": 1
+            },
+            {
+              "cid": 1,
+              "name": "fullname",
+              "type": "TEXT",
+              "notnull": 1,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 2,
+              "name": "email",
+              "type": "TEXT",
+              "notnull": 1,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 3,
+              "name": "phone",
+              "type": "TEXT",
+              "notnull": 1,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 4,
+              "name": "password_hash",
+              "type": "TEXT",
+              "notnull": 1,
+              "dflt_value": null,
+              "pk": 0
+            },
+            {
+              "cid": 5,
+              "name": "is_active",
+              "type": "BOOLEAN",
+              "notnull": 0,
+              "dflt_value": "1",
+              "pk": 0
+            },
+            {
+              "cid": 6,
+              "name": "created_at",
+              "type": "DATETIME",
+              "notnull": 0,
+              "dflt_value": "CURRENT_TIMESTAMP",
+              "pk": 0
+            },
+            {
+              "cid": 7,
+              "name": "updated_at",
+              "type": "DATETIME",
+              "notnull": 0,
+              "dflt_value": "CURRENT_TIMESTAMP",
+              "pk": 0
+            },
+            {
+              "cid": 8,
+              "name": "role",
+              "type": "TEXT",
+              "notnull": 0,
+              "dflt_value": "'student'",
+              "pk": 0
+            }
+          ],
+          "row_count": 5,
+          "rows": [
+            {
+              "id": 1,
+              "fullname": "Admin User",
+              "email": "admin@test.com",
+              "phone": "0123456789",
+              "password_hash": "$2b$12$ssN3zNdYPeF1KJTWqJojPu42b66gHpTGxGSJD1js5Dl0CCbxboYt2",
+              "is_active": 1,
+              "created_at": "2025-11-15 10:06:20",
+              "updated_at": "2025-11-15 10:06:20",
+              "role": "admin"
+            },
+            {
+              "id": 2,
+              "fullname": "Student User",
+              "email": "student@test.com",
+              "phone": "0112233445",
+              "password_hash": "$2b$12$2El4idNUcqjB7QS9JYd.8u2H7u9AWtUyDt0gr3v/ZPTi4Olw0wlT.",
+              "is_active": 1,
+              "created_at": "2025-11-15 10:08:58",
+              "updated_at": "2025-11-15 10:08:58",
+              "role": "student"
+            },
+            {
+              "id": 3,
+              "fullname": "Teacher User",
+              "email": "teacher@test.com",
+              "phone": "0987654321",
+              "password_hash": "$2b$12$05kueDODLLVXIMjjONody.yxgCo1zIJZTaKKM5d2G84qLoUexuTta",
+              "is_active": 1,
+              "created_at": "2025-11-15 10:11:14",
+              "updated_at": "2025-11-15 10:11:14",
+              "role": "teacher"
+            },
+            {
+              "id": 4,
+              "fullname": "Test User",
+              "email": "test@example.com",
+              "phone": "1234567890",
+              "password_hash": "$2b$12$WGLC.sKYJ5SsYR48oeZRo.bUU.xdxVV9PberxJFyEnCxl924p06gi",
+              "is_active": 1,
+              "created_at": "2025-11-15 10:34:38",
+              "updated_at": "2025-11-15 10:34:38",
+              "role": "student"
+            },
+            {
+              "id": 5,
+              "fullname": "Test User 2",
+              "email": "test2@example.com",
+              "phone": "1234567891",
+              "password_hash": "$2b$12$s.U8Bgl5yXBlkyy4PD9zHOSTIQoFlGOU4WAlvekf69fdcD63a2YyK",
+              "is_active": 1,
+              "created_at": "2025-11-15 10:34:44",
+              "updated_at": "2025-11-15 10:34:44",
+              "role": "student"
+            }
+          ],
+          "mock": null
+        }
+      },
+      "summary": {
+        "classroom_exams": 0,
+        "classroom_posts": 3,
+        "classroom_students": 1,
+        "classrooms": 6,
+        "exam_questions": 0,
+        "exams": 0,
+        "notification_reads": 1,
+        "notifications": 3,
+        "password_reset_tokens": 0,
+        "posts": 3,
+        "question_answers": 0,
+        "question_options": 0,
+        "questions": 0,
+        "subjects": 9,
+        "users": 5
+      }
+    }
+  },
+  "files": {
+    "post.json": [
+      {
+        "title": "Đề thi thử THPT Quốc gia môn Hóa học",
+        "author": "Nhóm tác giả Công phá Hóa",
+        "date": "2025-11-14T00:00:00",
+        "subject": "Hóa học",
+        "category": "Đề Thi",
+        "description": "Đề thi thử THPT Quốc gia môn Hóa học kèm hướng dẫn giải chi tiết.",
+        "views": 0,
+        "downloads": 0,
+        "class": "12",
+        "specialized": null,
+        "file_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFyGd7_020NT8p6E-lRnYH4RFG0rzgwl1ZG2h4tcU01NEI-RViHyaziqCVpnBo3qfk3ZtcXSY6EpByWVWWjW9M2rprGBW5yCGt7_Z_Khc0aSuhvEO3RGa9M8uJgPkEtsa062lShObaoNvsjKKU4tlJefoYsAJ-3jGDbRR3_R_AVI_E3pP8AZbULe34OqCIv14epr2HmqztEqEUqTKU=",
+        "user_id": 5
+      },
+      {
+        "title": "25 chuyên đề ngữ pháp tiếng Anh",
+        "author": "Cô Trang Anh",
+        "date": "2025-11-14T00:00:00",
+        "subject": "Tiếng Anh",
+        "category": "Tài Liệu",
+        "description": "Sách 25 chuyên đề ngữ pháp tiếng Anh của cô Trang Anh, tài liệu hữu ích cho học sinh, sinh viên, người đi làm và luyện thi.",
+        "views": 0,
+        "downloads": 0,
+        "class": "12",
+        "specialized": null,
+        "file_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF3PRuecZH6aQ5FVGYsI-U7zo-82x_3qQ1NDRtOb4ewD74VoESQZ9Vf4usrE-esLE1GXqfgpxxFsQibfv1zAoXDJJd14Nkvy5FqaSYIAx097p5llJSOiR8sHnDJq16A8TIO05zdv0C9PA_jEyldtOi4cCEEXfZ8oCw=",
+        "user_id": 10
+      },
+      {
+        "title": "Đề thi THPT Quốc gia 2016 môn Tiếng Anh",
+        "author": "Bộ Giáo dục và Đào tạo",
+        "date": "2025-11-14T00:00:00",
+        "subject": "Tiếng Anh",
+        "category": "Đề Thi",
+        "description": "Đáp án đề thi THPT Quốc gia 2016 môn Tiếng Anh.",
+        "views": 0,
+        "downloads": 0,
+        "class": "12",
+        "specialized": null,
+        "file_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFjJaBMp3DuqnGS-b4LF89M2Ui9sAEH-HvDrlRE4BA1ld5I3CTpR_uYiRtW7W--3LrsrDMmKBIsG-pVLCuZhrBLHV3EaixzNgcmc0VtckeLLDSTBiYWZxAvLOLyCKxAgO84j4HHRy8LSRIyBc0etvkK22trHyEIP1qLo3pVSbowYlunEJdl155YAQIIWDC6nmAKHfijdC3U6Dn2",
+        "user_id": 9
+      },
+      {
+        "title": "40 đề thi thử THPT Quốc gia 2020 môn Địa lí",
+        "author": "Tủ sách luyện thi",
+        "date": "2025-11-14T00:00:00",
+        "subject": "Địa lý",
+        "category": "Đề Thi",
+        "description": "40 đề thi thử THPT Quốc gia 2020 môn Địa lí có đáp án và giải chi tiết.",
+        "views": 0,
+        "downloads": 0,
+        "class": "12",
+        "specialized": null,
+        "file_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHkic3UP1qyoXbWCIrqj5Ir4U2plL8gudVFv4rBlwVkSVv2CrqtXS6vsn2sjJvUMTOd8xSsUBUinLvfd15jPkBpMQlrWi_AWBHcIrRtk5RtIGJGfm9UVNTwdgYnHAlnK51qf5030lE729fCJrvlORQIkp2F_3uTlb959yfOjGPhpmO9",
+        "user_id": 13
+      },
+      {
+        "title": "Tài liệu Ôn tập Giải tích 12",
+        "author": "Trường THPT Bảo Lộc",
+        "date": "2025-11-14T00:00:00",
+        "subject": "Toán học",
+        "category": "Tài Liệu",
+        "description": "Tài liệu ôn tập môn toán 12 – Giải tích.",
+        "views": 0,
+        "downloads": 0,
+        "class": "12",
+        "specialized": null,
+        "file_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFW0uMc6Td9s5ljlXghSTRGYbm6AZtyak0CSu39iLS7TljvNmYKlcgXmk8AmRmvYzFeOZ54xqhp6o-9N1WmKKl_j1sBWFSb4JKXASbVhGxhehEvbivdUoe7Y_oAQBNRB289G_CP650mRucRvTzcILmVetrFaS2yPs99Yija97r7sE7jp4rl51VuaFPVbU04tCVZEERRmUxjHeVDHH8Kvf_urq10SbJ3qCaY",
+        "user_id": 2
+      },
+      {
+        "title": "Đề thi tham khảo kỳ thi ĐGNL học sinh THPT",
+        "author": "Đại học Quốc gia Hà Nội",
+        "date": "2025-11-14T00:00:00",
+        "subject": "Tin học",
+        "category": "Đề Thi",
+        "description": "Đề thi tham khảo kỳ thi đánh giá năng lực học sinh THPT.",
+        "views": 0,
+        "downloads": 0,
+        "class": "12",
+        "specialized": null,
+        "file_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG0SkXXiD3WSDmWumTbARa9JkeNGaSVW0f9UR6B0KldfCAjCxX-5t3IDfBYjXU68AOmz9R2CpOi9DPsfm4izrcqqbNo7HcW-AXHomaI-iU2HQBKuC3WDX6_k-IGJT9nGpftdywwqCNproeFsKSyIHQmCRHLeXZ8V1Tu36I3nXmRSXeMZMlXbYguNvvlPCYf1Zg8m5jL-8BsIeXSpcFzsfF7YJc6bzgCwZUXu_nbsgCGkA-0tLbLx7ylylPW0dlRog==",
+        "user_id": 17
+      },
+      {
+        "title": "Tài liệu ôn thi tốt nghiệp THPT Quốc gia môn Địa lí",
+        "author": "ThS. Quan Văn Út",
+        "date": "2025-11-14T00:00:00",
+        "subject": "Địa lý",
+        "category": "Tài Liệu",
+        "description": "Tài liệu ôn thi tốt nghiệp THPT Quốc gia môn Địa lí lớp 12, chuyên đề Địa lí dân cư.",
+        "views": 0,
+        "downloads": 0,
+        "class": "12",
+        "specialized": null,
+        "file_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFUdc51UOnOtLDp5zqmaJQIPgqKDVzrmZjf7v-Oeeyo7wcIlAi1EoXb368FHEFWWbk6r0wuiBjFyb9-aMcODZLxFaDYdOJgfI-5LhHZRy1K9YgB76-LlctZJP-__cWAvSH8EEaRK3K6PFHuzrub-kxiX8M=",
+        "user_id": 14
+      },
+      {
+        "title": "Tài liệu ôn thi THPT Quốc gia môn Vật lý",
+        "author": "Trường Cao đẳng Miền Nam",
+        "date": "2025-11-14T00:00:00",
+        "subject": "Vật lý",
+        "category": "Tài Liệu",
+        "description": "Tài liệu ôn thi THPT Quốc gia môn Vật lý, tóm tắt lý thuyết và các dạng bài tập.",
+        "views": 0,
+        "downloads": 0,
+        "class": "12",
+        "specialized": null,
+        "file_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGT69_POFopjs5sK_iMeoGihmdNCFZslc8C8deq54nGHFFHhUNd8on4G-CCg3LuOv7_JVczktJpPQtLGHw4Ey_TQRJLFCxTeKHL15yKUwDaSkthoBrLoImdw5V_pcnT4sfrcHnTMxkYjjJNhhnquAYOjgmDV0I90iP9McuxuKP9KSYOfB-eEtGEJqbdldnnE4-_0MyQdHHpheSrEw0PhADMUg==",
+        "user_id": 4
+      },
+      {
+        "title": "Hướng dẫn Ôn thi tốt nghiệp THPT môn Tin học",
+        "author": "Bộ sách Hướng dẫn ôn thi tốt nghiệp THPT",
+        "date": "2025-11-14T00:00:00",
+        "subject": "Tin học",
+        "category": "Tài Liệu",
+        "description": "Sách hướng dẫn ôn thi tốt nghiệp THPT môn Tin học theo chương trình giáo dục phổ thông 2018.",
+        "views": 0,
+        "downloads": 0,
+        "class": "12",
+        "specialized": null,
+        "file_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHWrQHwhk5B2Qkr6Y9WVa7t4t_zO9L7-_j3XjXUqiO7gUB8ivV7UbiWA6oNbWppsvdiNpfwcqeJ98zq2XVrhpID5jKfs1p7MfpdN_CQB0rdKWWLo1C6yrxG36m_rbdez_6tUIWSQssL-KL2XqUDZSWoEIZiz0k0dBskhL6WjzzBqVWcMPQ4Gg==",
+        "user_id": 18
+      },
+      {
+        "title": "Đề thi thử THPT Quốc gia 2024 môn Sinh học",
+        "author": "BTEC FPT",
+        "date": "2025-11-14T00:00:00",
+        "subject": "Sinh học",
+        "category": "Đề Thi",
+        "description": "Top 30 bộ đề thi thử THPT Quốc gia môn Sinh học năm 2024 từ các trường THPT lớn trên cả nước.",
+        "views": 0,
+        "downloads": 0,
+        "class": "12",
+        "specialized": null,
+        "file_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG7rUGc_G_Yi2Ita4QBsc7WTXW_VH1pdHZ6qPxSHN2YA79-g230F745vZ3-k6Ed7kfF0M6MzuBbOcq5egbcfM5nxGNLNPvuT3Svfowbht1onltUWwFGtDVptJvo9vWtfQ25aGnUerzwsAkru8RgVKtZDWP4EX4=",
+        "user_id": 25
+      },
+      {
+        "title": "Chuyên đề hàm số và đồ thị",
+        "author": "Lê Bá Bảo",
+        "date": "2025-11-14T00:00:00",
+        "subject": "Toán học",
+        "category": "Tài Liệu",
+        "description": "Tài liệu chuyên đề khảo sát hàm số, bao gồm lý thuyết và các dạng bài tập nhận dạng đồ thị hàm số.",
+        "views": 0,
+        "downloads": 0,
+        "class": "12",
+        "specialized": null,
+        "file_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHHRK6gO7NB9W3bsBGGAMdynChGAFX_O4imwHb2T0fdOBWak9Z7OXN3vsP5QB-IrjQodUNFsnZHNMPk8lYl8zwIrMR7ReMTM_XmWzyQLeE53J0ZlMXVvALiOHGBS3z1YuYhIukqrsbIlAqOwMifuKKeMDbQW7MUOHQ3iPvHn23CQwbG1lk69f8sJLc3CrjU-_9QCjY86B2rzWv8L6Mlpg==",
+        "user_id": 20
+      },
+      {
+        "title": "Tài liệu ôn thi THPT Quốc gia môn GDCD lớp 12",
+        "author": "Hoc247",
+        "date": "2025-11-14T00:00:00",
+        "subject": "GDCD",
+        "category": "Tài Liệu",
+        "description": "Tài liệu ôn thi THPT Quốc gia môn GDCD lớp 12, phần lý thuyết.",
+        "views": 0,
+        "downloads": 0,
+        "class": "12",
+        "specialized": null,
+        "file_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHWcbrhbvNkPjGoNZ2g_2Sa_idMtdt1wNF35PsJv89-_5ZsFquBi5YUEdyIxjcNfZ56wNqlrK1j2d0AIWFAScJ-yhfTwr05cAGcqlTI70Hv7-rxedg1LpCKeFfocXsH16bKL3R39BhFTCufb7IJQVdN24Qll-pszG0FR7EnV_utiYqQ7F8lM20I5Ww=",
+        "user_id": 16
+      },
+      {
+        "title": "Đề thi thử tốt nghiệp THPT 2023 môn Toán",
+        "author": "TOANMATH.com",
+        "date": "2025-11-14T00:00:00",
+        "subject": "Toán học",
+        "category": "Đề Thi",
+        "description": "Tổng hợp các đề thi thử tốt nghiệp THPT Quốc gia năm 2023 môn Toán có đáp án và lời giải chi tiết.",
+        "views": 0,
+        "downloads": 0,
+        "class": "12",
+        "specialized": null,
+        "file_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG_xcaCYVVPq7pmHwysyI6w0G2xw5_pjvKuyVFPLKP3d510La5Pkp6H4orGBO4PItn0G3lURhlwML_pzzL97pKAb6pQMI_V24msd4eBfzxYV_ox2148JevHPSPnTlSUoPjQLDACbUR1k6CGI-kPHBjC_VvlGgd-zW1qAWquuZcqR8E_I-HH7Tqpd32prsc=",
+        "user_id": 19
+      },
+      {
+        "title": "Tài liệu ôn thi THPT Quốc gia môn Vật lý - Dao động cơ",
+        "author": "DeThi.edu.vn",
+        "date": "2025-11-14T00:00:00",
+        "subject": "Vật lý",
+        "category": "Tài Liệu",
+        "description": "Chuyên đề ôn thi THPT Quốc gia môn Vật lý, chương 1: Dao động cơ, bao gồm đủ dạng toán và phương pháp giải chi tiết.",
+        "views": 0,
+        "downloads": 0,
+        "class": "12",
+        "specialized": null,
+        "file_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHWXC7hVVoRFjocHsEDr8uMY1zP5MARXp9mxY6VMSY2ediX1GU2paEih6F0ZQAnylZ-K40Jsscqg7EZUGDp5Ht7qW8ufT_HR_7Y5URVnbl7Vj9Z6RAM2kktOgZtcT5unmGW-ERh4QINFavJ-dYTuEbJaD12ezEdM8RfApUF5JVOnaWHIjLHCWeOSb5s5h78JGtzkMf4JugWB-5Pog==",
+        "user_id": 22
+      },
+      {
+        "title": "Đề thi thử THPT Quốc gia 2024 môn Vật lý",
+        "author": "Thư Viện Vật Lý",
+        "date": "2025-11-14T00:00:00",
+        "subject": "Vật lý",
+        "category": "Đề Thi",
+        "description": "Tổng hợp các đề thi thử tốt nghiệp THPT môn Vật lý năm 2024, bám sát đề minh họa của Bộ GD&ĐT.",
+        "views": 0,
+        "downloads": 0,
+        "class": "12",
+        "specialized": null,
+        "file_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH4i3Vbb3MseL0f2cwUiFYb9MJmipNG5REMcGjhtyUJlKcz967ZmCR-whE6V13OPx9NR4lN-QhgBrtKPr7GCJAIBJ_Ag0EI2U0MbY21XFZP73r4s0mtEvRSSd731-SgT0nf",
+        "user_id": 21
+      },
+      {
+        "title": "Đề thi thử THPT Quốc gia 2024 môn GDCD",
+        "author": "BTEC FPT",
+        "date": "2025-11-14T00:00:00",
+        "subject": "GDCD",
+        "category": "Đề Thi",
+        "description": "30 đề thi thử THPT Quốc gia môn GDCD mới nhất, giúp học sinh nắm vững kiến thức và kỹ năng làm bài.",
+        "views": 0,
+        "downloads": 0,
+        "class": "12",
+        "specialized": null,
+        "file_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHV2GdMBZhakVp356FIyTmuW4bzo61-dbcTlAHdRpN4D-VVTDht83bOiLEsbvVi3mekbuigWYUAVATuhVwWNkRlPwgxXyFCJFc-UoteZaOVksxDrNsNRsbvtHzBSAkP8UJFJhb_uL0Da3lDELvdglofpsDBCMM=",
+        "user_id": 33
+      },
+      {
+        "title": "Bài tập ngữ pháp Tiếng Anh 12 có đáp án",
+        "author": "Hoc247",
+        "date": "2025-11-14T00:00:00",
+        "subject": "Tiếng Anh",
+        "category": "Tài Liệu",
+        "description": "Tổng hợp bài tập ngữ pháp Tiếng Anh lớp 12 theo từng chuyên đề, có đáp án chi tiết.",
+        "views": 0,
+        "downloads": 0,
+        "class": "12",
+        "specialized": null,
+        "file_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF8J4kwlCjceyWMAZD_eOM2Rfz6FM5emKot538LD8Lgr_Gu2gvuvpjpIH6Gfqx1itaCE7ioxw1skCbKSpJf29ORZSXKWzwn6A40kjaYvv_6m-D4uRCsp-N6Gpv0BsJICOtj3B8rX8P5JniyF-jFx3JCsyHjaMgXH_vH0ef9Y_DdIQKXZD1sGAhwWSh0",
+        "user_id": 28
+      },
+      {
+        "title": "Tài liệu ôn thi THPT Quốc gia môn GDCD 12",
+        "author": "Hoc247",
+        "date": "2025-11-14T00:00:00",
+        "subject": "GDCD",
+        "category": "Tài Liệu",
+        "description": "Tài liệu ôn thi THPT Quốc gia môn GDCD lớp 12, phần lý thuyết, bao gồm các bài học trọng tâm.",
+        "views": 0,
+        "downloads": 0,
+        "class": "12",
+        "specialized": null,
+        "file_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEoTViAgYwxMrRTV6IYlB1UjcbaHVPTd2ptbgOSrrCOChzYjTokerMaUf9TDTkFr_bRW1DsGwiGy13VAIl_HxAcQxZnVPSk3ep1D3sjQnDN4obYycyPsf9tbkfZvbtg3hQYZarZ_unEkyumNVPndnzdzRjv6UmlPSgyo3ifDgdUVSDBdM9XVhyxzA==",
+        "user_id": 34
+      },
+      {
+        "title": "Đề thi học sinh giỏi Tin học lớp 12",
+        "author": "LCOJ",
+        "date": "2025-11-14T00:00:00",
+        "subject": "Tin học",
+        "category": "Đề Thi",
+        "description": "Đề thi học sinh giỏi môn Tin học lớp 12 năm học 2023-2024 của thành phố Hà Nội.",
+        "views": 0,
+        "downloads": 0,
+        "class": "12",
+        "specialized": "Chuyên",
+        "file_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEBPIoNKQ6kWy1XNYNfyOBLFa-nMswhYq053_VG2Mtp_bf4y2ZzQt1y7j9iP3tU-DMP-AXxusL3gQPAph5EOuHRqddj3alwhGF--U8TQcoOtGBgSdrbkD1K2HOQHKm9BQbSlyhUSSL5MjWXBGddf2rt_pv3MsiqG1W85AUoHYc=",
+        "user_id": 35
+      },
+      {
+        "title": "Bài tập Atlat Địa lí Việt Nam có lời giải",
+        "author": "VietJack",
+        "date": "2025-11-14T00:00:00",
+        "subject": "Địa lý",
+        "category": "Tài Liệu",
+        "description": "Các dạng bài tập về Atlat Địa lí Việt Nam, giúp học sinh rèn luyện kĩ năng đọc và phân tích bản đồ.",
+        "views": 0,
+        "downloads": 0,
+        "class": "12",
+        "specialized": null,
+        "file_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHWdXJfELl3Uj0Ku4EP7TJue6vT6iTzs8o3fGtr6z-skgTnbtgM1vF4VFb0RXQPU7NalZHcoLeQfi0FvuwVclScE_UkXNdauxlIBW4FmPTStk8Z4KReQwinti4caNu2vqnz4LbBz-AKX7VcAn6kmA2D9N94KjdNrTXfnmxr5OzhZxavQ_qfbJHqsENItxc=",
+        "user_id": 32
+      },
+      {
+        "title": "Tài liệu ôn thi THPT Quốc gia môn Lịch sử - Cách mạng tháng Tám",
+        "author": "Download.vn",
+        "date": "2025-11-14T00:00:00",
+        "subject": "Lịch sử",
+        "category": "Tài Liệu",
+        "description": "Tài liệu ôn thi THPT Quốc gia môn Lịch sử theo bài, giúp học sinh nắm chắc kiến thức trọng tâm, đặc biệt là giai đoạn Cách mạng tháng Tám 1945.",
+        "views": 0,
+        "downloads": 0,
+        "class": "12",
+        "specialized": null,
+        "file_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGjUhhuvAa3TDfodDmDQ4mxBZIfsYJP0Xqa0OvxTgIvTNRYI_jl00aQmnqiNISQSxCuA1cBdaNW0SHLUhsWDyvbwykQFxHp_updwqjWesFHX0bOgHBG1I1nxAwnRTVFEGc-wFyJuN62Gsp_EOUS4KnLuRqiqA4NvQwtf5MGw0u8Gow=",
+        "user_id": 30
+      },
+      {
+        "title": "Đề thi thử THPT Quốc gia 2023 môn Tiếng Anh",
+        "author": "IZONE",
+        "date": "2025-11-14T00:00:00",
+        "subject": "Tiếng Anh",
+        "category": "Đề Thi",
+        "description": "Tổng hợp 10+ đề thi thử Tiếng Anh THPT Quốc gia 2023, bám sát cấu trúc đề thi minh họa của Bộ GD&ĐT.",
+        "views": 0,
+        "downloads": 0,
+        "class": "12",
+        "specialized": null,
+        "file_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE3PB9t6tqBDV5omU9SbmfVslb9etzEMbhnB3IHCO6Jj9mo1CjGzHksP7egnYnOVVrwggHO6DSALEhTwJlx_ljbgcpdN5q51FzKF0KwWt7dHvZqtpKn1-2dJmRd60BV0huRo6JilndlGqKJtxumv2XOHMJWL0fi-8ROZcL0",
+        "user_id": 27
+      },
+      {
+        "title": "Giáo trình Cơ sở dữ liệu",
+        "author": "database.edu.vn",
+        "date": "2025-11-14T00:00:00",
+        "subject": "Tin học",
+        "category": "Tài Liệu",
+        "description": "Giáo trình trình bày các kỹ thuật cơ bản của cơ sở dữ liệu, mô hình liên kết thực thể và mô hình cơ sở dữ liệu quan hệ.",
+        "views": 0,
+        "downloads": 0,
+        "class": "12",
+        "specialized": "Chuyên",
+        "file_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHBtL6bzJ6c0soB9x_gzciXu_R1fTZiu7KfctAoR27L-IFk5wC2OX4PnJXfV_7G4RuOaJA44WQlkF9ZTPPyVqWrP9uB3-DdMKeBDBeWQEuNW9zmPYH15LIpJn-U1EAN7ypvX6ICSOI=",
+        "user_id": 36
+      },
+      {
+        "title": "Đề thi thử THPT Quốc gia 2019 môn GDCD",
+        "author": "Trường THPT Chuyên Nguyễn Trãi",
+        "date": "2025-11-14T00:00:00",
+        "subject": "GDCD",
+        "category": "Đề Thi",
+        "description": "Đề thi thử môn GDCD lần 1 năm học 2019-2020.",
+        "views": 0,
+        "downloads": 0,
+        "class": "12",
+        "specialized": null,
+        "file_url": "https://chuyennguyentrai.edu.vn/de-thi-thu-mon-gdcd-lan-1-nam-hoc-2019-2020-tin1105",
+        "user_id": 15
+      },
+      {
+        "title": "Một số biện pháp dạy và ôn tập môn Lịch sử lớp 12",
+        "author": "Tạp chí Khoa học Đại học Đồng Tháp",
+        "date": "2025-11-14T00:00:00",
+        "subject": "Lịch sử",
+        "category": "Tài Liệu",
+        "description": "Bài viết đề cập đến một số biện pháp dạy và ôn tập môn Lịch sử 12 theo hình thức thi trắc nghiệm khách quan.",
+        "views": 0,
+        "downloads": 0,
+        "class": "12",
+        "specialized": null,
+        "file_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH70VjSowU-ri6N3Vm1mu78b7BEPZ-VuiW7JfoZzdeF0W-lNMl-CQBo4kuke9_X7qL1TxGekdtNS0INl9ZARydvFLGwUs3COBworBo_bWuhELRjhpm6lN8MfpEXuoMnyfGD38uanfwEqrgcRe1Qgh3HinZfx5lUNwMB3m8=",
+        "user_id": 12
+      },
+      {
+        "title": "Lý thuyết và bài tập Hóa học hữu cơ 12",
+        "author": "ThS Nguyễn Văn Tiến",
+        "date": "2025-11-14T00:00:00",
+        "subject": "Hóa học",
+        "category": "Tài Liệu",
+        "description": "Bài giảng Hóa học hữu cơ bao gồm cơ sở lý thuyết và các hợp chất hữu cơ cơ bản.",
+        "views": 0,
+        "downloads": 0,
+        "class": "12",
+        "specialized": null,
+        "file_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGn_NMXyODX2T7SYpKzHm9eZ3t3u51veo7Kru6us4HTu6K_do7n32imKUT7Ki7TBUniA2-CgTFOSrlx4cw7AMTP90vD2e28VXgiW7oHS-czepD5Advt6K1v0l1mun3nxJy4L_zRDqFcRrN_o2d4vGameK67WpYjMy-rHsSNp3EeBoVxGh-8_vlYPr-z2cxTF-E=",
+        "user_id": 24
+      },
+      {
+        "title": "Hệ thống kiến thức ôn tập tốt nghiệp THPT 2021 môn Hóa học",
+        "author": "Trường THPT Dân tộc Nội trú tỉnh",
+        "date": "2025-11-14T00:00:00",
+        "subject": "Hóa học",
+        "category": "Tài Liệu",
+        "description": "Tài liệu ôn thi tốt nghiệp THPT Quốc gia 2021 môn Hóa học dưới dạng sơ đồ tư duy.",
+        "views": 0,
+        "downloads": 0,
+        "class": "12",
+        "specialized": null,
+        "file_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGKqLbw0wcCOEJZrzs02koTb5Zf8twiD6V_dD5cVx2UuomTJcPOTCIQj1VpkLxm0p8882-knwcNo71q4OUmIGag9mSzaDztlkXdlP5dBiTc6nXD2Ita9Ow1IqP766AnMWR6boohsL4bgcTOX9IxWPb9ifLIT_2nI4NyNpUcPiXLnCKLw5TMY9qKjymd8naQfp5--hdLT4ay",
+        "user_id": 6
+      },
+      {
+        "title": "Đề thi thử THPT Quốc gia 2020 môn GDCD",
+        "author": "Trường THPT Chuyên Nguyễn Trãi",
+        "date": "2025-11-14T00:00:00",
+        "subject": "GDCD",
+        "category": "Đề Thi",
+        "description": "Đề thi thử môn GDCD lần 2 năm học 2020-2021.",
+        "views": 0,
+        "downloads": 0,
+        "class": "12",
+        "specialized": null,
+        "file_url": "https://chuyennguyentrai.edu.vn/de-thi-thu-mon-gdcd-lan-2-nam-hoc-2020-2021-tin1106",
+        "user_id": 33
+      },
+      {
+        "title": "Hướng dẫn ôn thi tốt nghiệp THPT 2025 môn Sinh học",
+        "author": "Tuyển Sinh Số",
+        "date": "2025-11-14T00:00:00",
+        "subject": "Sinh học",
+        "category": "Tài Liệu",
+        "description": "Tài liệu hướng dẫn ôn thi tốt nghiệp THPT 2025 môn Sinh học.",
+        "views": 0,
+        "downloads": 0,
+        "class": "12",
+        "specialized": null,
+        "file_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEY0eXhDLN54rM0pE_7HgA3cez_PqID9pGlf9LY4GG7hHDVR1S4CHU8akBARX8uapXxwbf_UKrpwPb4b_5TcLNN2Kk9GUTA58j9NAMt1vcA7NwSsfvFTSlyrGpNeLmnfUdfJq-xTtCc2WDxLbOpKb0k0fgAb00rtvBFp3xpabMiZsGPvz-ADRd480tDrn4uayE5N9PDpdx9YeAqu7wv56XR5boN_0Gnzhtq",
+        "user_id": 8
+      },
+      {
+        "title": "Đề thi thử THPT Quốc gia 2020 môn Toán",
+        "author": "Sở GD&ĐT Hà Nội",
+        "date": "2025-11-14T00:00:00",
+        "subject": "Toán học",
+        "category": "Đề Thi",
+        "description": "Đề thi thử tốt nghiệp THPT 2020 lần 1 môn Toán của Sở GD&ĐT Hà Nội.",
+        "views": 0,
+        "downloads": 0,
+        "class": "12",
+        "specialized": null,
+        "file_url": "https://thptquocgia.edu.vn/download/De-thi-Dap-an-mon-Toan/De-thi-thu-tot-nghiep-THPT-2020-lan-1-mon-Toan-cua-So-GD-DT-Ha-Noi.html",
+        "user_id": 19
+      },
+      {
+        "title": "Đề thi thử THPT Quốc gia 2020 môn Vật lý",
+        "author": "Trường THPT Lương Thế Vinh",
+        "date": "2025-11-14T00:00:00",
+        "subject": "Vật lý",
+        "category": "Đề Thi",
+        "description": "Đề thi thử THPT Quốc gia môn Vật lý lần 1 - Mã đề 001.",
+        "views": 0,
+        "downloads": 0,
+        "class": "12",
+        "specialized": null,
+        "file_url": "https://dethi.edu.vn/28-de-thi-thu-thpt-quoc-gia-mon-vat-ly-nam-2020-co-dap-an-18197/",
+        "user_id": 21
+      },
+      {
+        "title": "Đề thi thử THPT Quốc gia 2020 môn Sinh học",
+        "author": "Bộ Giáo dục và Đào tạo",
+        "date": "2025-11-14T00:00:00",
+        "subject": "Sinh học",
+        "category": "Đề Thi",
+        "description": "Đề thi thử THPT Quốc gia môn Sinh học năm 2020 - Đề số 22.",
+        "views": 0,
+        "downloads": 0,
+        "class": "12",
+        "specialized": null,
+        "file_url": "https://dethi.edu.vn/de-thi-thu-thpt-quoc-gia-mon-sinh-hoc-nam-2020-de-so-22-co-dap-an-8898/",
+        "user_id": 25
+      },
+      {
+        "title": "Thi thử Tiếng Anh (Mock) 01",
+        "author": "NeuraViet",
+        "date": "2025-11-16T00:00:00",
+        "subject": "Tiếng Anh",
+        "category": "Thi Thử",
+        "description": "Bài thi thử Tiếng Anh 60 phút",
+        "views": 0,
+        "downloads": 0,
+        "class": "12",
+        "specialized": null,
+        "file_url": null,
+        "user_id": null
+      },
+      {
+        "title": "Thi thử Toán (Mock) 01",
+        "author": "NeuraViet",
+        "date": "2025-11-16T00:00:00",
+        "subject": "Toán học",
+        "category": "Thi Thử",
+        "description": "Bài thi thử Toán 50 câu",
+        "views": 0,
+        "downloads": 0,
+        "class": "12",
+        "specialized": null,
+        "file_url": null,
+        "user_id": null
+      },
+      {
+        "title": "Thi thử Vật lý (Mock) 01",
+        "author": "NeuraViet",
+        "date": "2025-11-16T00:00:00",
+        "subject": "Vật lý",
+        "category": "Thi Thử",
+        "description": "Bài thi thử Vật lý trắc nghiệm",
+        "views": 0,
+        "downloads": 0,
+        "class": "12",
+        "specialized": null,
+        "file_url": null,
+        "user_id": null
+      },
+      {
+        "title": "Đề thi thử THPT Quốc gia 2020 môn Địa lý",
+        "author": "Sở GD&ĐT Nam Định",
+        "date": "2025-11-14T00:00:00",
+        "subject": "Địa lý",
+        "category": "Đề Thi",
+        "description": "Đề thi thử Tốt nghiệp THPT môn Địa lý năm 2020 - Mã đề 201.",
+        "views": 0,
+        "downloads": 0,
+        "class": "12",
+        "specialized": null,
+        "file_url": "https://dethi.edu.vn/de-thi-thu-tot-nghiep-thpt-mon-dia-ly-nam-2020-ma-de-201-truong-thpt-dai-an-17700/",
+        "user_id": 31
+      },
+      {
+        "title": "Đề thi thử THPT Quốc gia 2020 môn Lịch sử",
+        "author": "Trường THPT Chuyên Nguyễn Trãi",
+        "date": "2025-11-14T00:00:00",
+        "subject": "Lịch sử",
+        "category": "Đề Thi",
+        "description": "Đề thi thử môn Lịch sử - Năm học 2019-2020.",
+        "views": 0,
+        "downloads": 0,
+        "class": "12",
+        "specialized": null,
+        "file_url": "https://chuyennguyentrai.edu.vn/de-thi-thu-mon-lich-su-lan-1-nam-hoc-2019-2020-tin1099",
+        "user_id": 29
+      },
+      {
+        "title": "Đề thi thử THPT Quốc gia 2020 môn GDCD",
+        "author": "Trường THPT Chuyên Nguyễn Trãi",
+        "date": "2025-11-14T00:00:00",
+        "subject": "GDCD",
+        "category": "Đề Thi",
+        "description": "Đề thi thử môn GDCD lần 1 - Năm học 2019-2020.",
+        "views": 0,
+        "downloads": 0,
+        "class": "12",
+        "specialized": null,
+        "file_url": "https://chuyennguyentrai.edu.vn/de-thi-thu-mon-gdcd-lan-1-nam-hoc-2019-2020-tin1105",
+        "user_id": 33
+      },
+      {
+        "title": "Đề thi thử THPT Quốc gia 2020 môn Tin học",
+        "author": "Trường THPT Chuyên Nguyễn Trãi",
+        "date": "2025-11-14T00:00:00",
+        "subject": "Tin học",
+        "category": "Đề Thi",
+        "description": "Đề thi thử tốt nghiệp THPT Quốc gia - Lần 2 năm học 2020-2021 môn Tin học.",
+        "views": 0,
+        "downloads": 0,
+        "class": "12",
+        "specialized": null,
+        "file_url": "https://chuyennguyentrai.edu.vn/de-thi-thu-tot-nghiep-thpt-quoc-gia-lan-2-nam-hoc-2020-2021-tin1615",
+        "user_id": 35
+      }
+    ],
+    "mock_posts.json": [
+      {
+        "title": "Thi thử Tiếng Anh (Mock) 01",
+        "author": "NeuraViet",
+        "date": "2025-11-16T00:00:00",
+        "subject": "Tiếng Anh",
+        "category": "Thi Thử",
+        "description": "Bài thi thử Tiếng Anh 60 phút",
+        "views": 0,
+        "downloads": 0,
+        "class": "12",
+        "specialized": null,
+        "file_url": null,
+        "user_id": null
+      },
+      {
+        "title": "Thi thử Toán (Mock) 01",
+        "author": "NeuraViet",
+        "date": "2025-11-16T00:00:00",
+        "subject": "Toán học",
+        "category": "Thi Thử",
+        "description": "Bài thi thử Toán 50 câu",
+        "views": 0,
+        "downloads": 0,
+        "class": "12",
+        "specialized": null,
+        "file_url": null,
+        "user_id": null
+      },
+      {
+        "title": "Thi thử Vật lý (Mock) 01",
+        "author": "NeuraViet",
+        "date": "2025-11-16T00:00:00",
+        "subject": "Vật lý",
+        "category": "Thi Thử",
+        "description": "Bài thi thử Vật lý trắc nghiệm",
+        "views": 0,
+        "downloads": 0,
+        "class": "12",
+        "specialized": null,
+        "file_url": null,
+        "user_id": null
+      }
+    ],
+    "frontend/data/exam.json": {
+      "examTitle": "Thi thử Tiếng Anh - Đọc hiểu",
+      "version": "v1",
+      "difficulty": "Trung bình",
+      "totalQuestions": 12,
+      "initialTimeSeconds": 1800,
+      "studentInfo": {
+        "name": "Học sinh kiểm thử",
+        "subject": "Tiếng Anh",
+        "date": "2025-11-16"
+      },
+      "passage": {
+        "title": "The Benefits of Daily Reading",
+        "content": [
+          "Reading every day helps improve vocabulary and comprehension. It also enhances focus and reduces stress.",
+          "Many students report better test scores after adopting a daily reading routine. Even short sessions (15–20 minutes) can make a difference.",
+          "Choose topics you enjoy to build a sustainable habit. Over time, you will notice increased confidence when tackling complex texts."
+        ],
+        "source": "Education Journal, 2024"
+      },
+      "questions": [
+        {
+          "id": 1,
+          "text": "What is one benefit of daily reading?",
+          "options": [
+            "It increases stress",
+            "It improves vocabulary",
+            "It reduces confidence",
+            "It wastes time"
+          ]
+        },
+        {
+          "id": 2,
+          "text": "How long can short reading sessions be effective?",
+          "options": [
+            "1–2 minutes",
+            "5–10 minutes",
+            "15–20 minutes",
+            "60 minutes"
+          ]
+        },
+        {
+          "id": 3,
+          "text": "Which habit helps improve test scores?",
+          "options": [
+            "Daily reading",
+            "Watching TV",
+            "Skipping practice",
+            "Listening to music only"
+          ]
+        },
+        {
+          "id": 4,
+          "text": "Selecting topics you enjoy helps to:",
+          "options": [
+            "Make the habit sustainable",
+            "Reduce reading speed",
+            "Avoid complex texts",
+            "Forget vocabulary"
+          ]
+        },
+        {
+          "id": 5,
+          "text": "Confidence increases when:",
+          "options": [
+            "You avoid reading",
+            "You read complex texts over time",
+            "You stop practicing",
+            "You only read headlines"
+          ]
+        },
+        {
+          "id": 6,
+          "text": "Daily reading primarily improves:",
+          "options": [
+            "Math skills",
+            "Comprehension",
+            "Cooking",
+            "Physical strength"
+          ]
+        },
+        {
+          "id": 7,
+          "text": "Short sessions are:",
+          "options": [
+            "Not useful",
+            "Potentially effective",
+            "Only for advanced readers",
+            "Too tiring"
+          ]
+        },
+        {
+          "id": 8,
+          "text": "Students reported better scores after:",
+          "options": [
+            "Reducing reading",
+            "Daily reading",
+            "Skipping tests",
+            "Only reading summaries"
+          ]
+        },
+        {
+          "id": 9,
+          "text": "Stress can be reduced by:",
+          "options": [
+            "Daily reading",
+            "Cramming",
+            "Ignoring study",
+            "Sleeping in class"
+          ]
+        },
+        {
+          "id": 10,
+          "text": "To make reading a habit:",
+          "options": [
+            "Choose boring topics",
+            "Choose topics you enjoy",
+            "Read once a month",
+            "Avoid complex texts"
+          ]
+        },
+        {
+          "id": 11,
+          "text": "Over time, reading helps you tackle:",
+          "options": [
+            "Only simple texts",
+            "Complex texts",
+            "Non-text tasks",
+            "No change"
+          ]
+        },
+        {
+          "id": 12,
+          "text": "Daily reading is described as:",
+          "options": [
+            "A waste of time",
+            "Stressful",
+            "Beneficial",
+            "Only for experts"
+          ]
+        }
+      ]
+    },
+    "frontend/metadata.json": {
+      "name": "NeuraViet",
+      "description": "Một diễn đàn học tập dành cho học sinh và giáo viên Việt Nam để chia sẻ đề thi, tài liệu và tham gia các kỳ thi thử trực tuyến.",
+      "requestFramePermissions": []
+    },
+    "draft.json": {
+      "metadata": {
+        "version": "1.0",
+        "generated_at": "2025-11-13T00:00:00Z"
+      },
+      "categories": [
+        "Đề Thi",
+        "Tài Liệu",
+        "Thi Thử"
+      ],
+      "subjects": [
+        "Toán",
+        "Văn",
+        "Anh",
+        "Lý",
+        "Hóa",
+        "Sinh"
+      ],
+      "users_for_api": [
+        {
+          "fullname": "Nguyễn Văn B",
+          "email": "nguyenvanb@example.com",
+          "phone": "0901234567",
+          "password": "secret123"
+        }
+      ],
+      "users_for_db": [
+        {
+          "id": 1,
+          "fullname": "Nguyễn Văn B",
+          "email": "nguyenvanb@example.com",
+          "phone": "0901234567",
+          "password_hash": "$2b$12$exampleexampleexampleexampleexampleexampleexampleexampleexample",
+          "is_active": true,
+          "created_at": "2025-11-13T00:00:00",
+          "updated_at": "2025-11-13T00:00:00"
+        }
+      ],
+      "posts": [
+        {
+          "title": "Tài liệu Ôn tập Toán 12",
+          "author": "Nguyễn Văn B",
+          "date": "2025-11-13",
+          "subject": "Toán",
+          "category": "Tài Liệu",
+          "description": "Tổng hợp công thức và bài tập chọn lọc.",
+          "views": 0,
+          "downloads": 0,
+          "class": "12",
+          "specialized": "Chuyên",
+          "file_url": "https://example.com/files/toan12.pdf",
+          "user_id": 1
+        },
+        {
+          "title": "Đề thi thử THPT Quốc gia",
+          "author": "Trần Thị C",
+          "date": "2025-11-13",
+          "subject": "Anh",
+          "category": "Thi Thử",
+          "description": "Đề thi thử môn tiếng Anh kèm đáp án.",
+          "views": 0,
+          "downloads": 0,
+          "class": "12",
+          "specialized": null,
+          "file_url": "https://example.com/files/anh_thithu.pdf",
+          "user_id": 2
+        }
+      ],
+      "exams": [
+        {
+          "fullname": "Nguyễn Văn B",
+          "title": "Đề thi Toán số 1",
+          "author": "Sở GD&ĐT",
+          "subject": "Toán",
+          "file_url": "https://example.com/exams/toan_de1.pdf",
+          "answer_file_url": "https://example.com/exams/toan_de1_dapan.pdf",
+          "user_id": 1,
+          "description": "Đề chính thức năm 2025",
+          "duration_min": 90,
+          "questions": [
+            {
+              "question_id": 1,
+              "order_index": 1,
+              "question_text": "Giá trị của x?",
+              "question_type": "multiple_choice",
+              "points": 1,
+              "options": [
+                {
+                  "option_id": 11,
+                  "option_text": "2"
+                },
+                {
+                  "option_id": 12,
+                  "option_text": "3"
+                },
+                {
+                  "option_id": 13,
+                  "option_text": "4"
+                },
+                {
+                  "option_id": 14,
+                  "option_text": "5"
+                }
+              ]
+            },
+            {
+              "question_id": 2,
+              "order_index": 2,
+              "question_text": "Mệnh đề sau đúng hay sai?",
+              "question_type": "true_false",
+              "points": 1
+            },
+            {
+              "question_id": 3,
+              "order_index": 3,
+              "question_text": "Đạo hàm của x^2?",
+              "question_type": "short_answer",
+              "points": 2
+            }
+          ],
+          "answer_key": [
+            {
+              "question_id": 1,
+              "correct_option_id": 12
+            },
+            {
+              "question_id": 2,
+              "correct_answer": "TRUE"
+            },
+            {
+              "question_id": 3,
+              "correct_answer": "2x"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

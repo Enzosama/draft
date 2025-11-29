@@ -1,0 +1,196 @@
+{
+  "topics": [
+    {
+      "slug": "web-security",
+      "name": "Web Security",
+      "topic_type": "both",
+      "domain": "Web",
+      "level": "beginner",
+      "description": "Bảo mật ứng dụng Web, tập trung vào các lỗ hổng phổ biến (OWASP Top 10) và cách phòng chống.",
+      "resources": [
+        {
+          "title": "OWASP Top 10 - 2021",
+          "resource_type": "article",
+          "source": "https://owasp.org/www-project-top-ten/",
+          "is_offensive": true,
+          "is_defensive": true,
+          "difficulty": "beginner",
+          "tags": "owasp,web,vulnerability",
+          "summary": "Danh sách 10 lỗ hổng bảo mật web phổ biến và nguy hiểm nhất."
+        },
+        {
+          "title": "PortSwigger Web Security Academy",
+          "resource_type": "lab",
+          "source": "https://portswigger.net/web-security",
+          "is_offensive": true,
+          "is_defensive": false,
+          "difficulty": "intermediate",
+          "tags": "lab,burpsuite,practice",
+          "summary": "Kho tàng bài lab thực hành tấn công web từ cơ bản đến nâng cao."
+        },
+        {
+          "title": "SQL Injection Prevention Cheat Sheet",
+          "resource_type": "note",
+          "source": "https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html",
+          "file_url": "https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.pdf",
+          "is_offensive": false,
+          "is_defensive": true,
+          "difficulty": "intermediate",
+          "tags": "sqli,defense,coding,pdf",
+          "summary": "Hướng dẫn chi tiết cách phòng chống SQL Injection trong code."
+        }
+      ]
+    },
+    {
+      "slug": "network-security",
+      "name": "Network Security",
+      "topic_type": "defense",
+      "domain": "Network",
+      "level": "intermediate",
+      "description": "Bảo mật hạ tầng mạng, giám sát lưu lượng, cấu hình Firewall/IDS/IPS và phân tích gói tin.",
+      "resources": [
+        {
+          "title": "Wireshark Network Analysis",
+          "resource_type": "tool",
+          "source": "https://www.wireshark.org/",
+          "is_offensive": false,
+          "is_defensive": true,
+          "difficulty": "intermediate",
+          "tags": "network,analysis,packet",
+          "summary": "Công cụ phân tích giao thức mạng phổ biến nhất thế giới."
+        },
+        {
+          "title": "Nmap Network Scanning",
+          "resource_type": "tool",
+          "source": "https://nmap.org/book/man.html",
+          "is_offensive": true,
+          "is_defensive": true,
+          "difficulty": "beginner",
+          "tags": "nmap,scanning,recon",
+          "summary": "Tài liệu hướng dẫn sử dụng Nmap để quét mạng và kiểm tra bảo mật."
+        }
+      ]
+    },
+    {
+      "slug": "malware-analysis",
+      "name": "Malware Analysis",
+      "topic_type": "defense",
+      "domain": "Malware",
+      "level": "advanced",
+      "description": "Phân tích mã độc, kỹ thuật dịch ngược (Reverse Engineering) để hiểu hành vi và nguồn gốc tấn công.",
+      "resources": [
+        {
+          "title": "Practical Malware Analysis",
+          "resource_type": "book",
+          "source": "https://nostarch.com/malware",
+          "file_url": "/static/books/practical_malware_analysis.pdf",
+          "is_offensive": false,
+          "is_defensive": true,
+          "difficulty": "advanced",
+          "tags": "malware,reverse-engineering,book,pdf",
+          "summary": "Cuốn sách kinh điển về phân tích mã độc thực chiến."
+        },
+        {
+          "title": "Ghidra",
+          "resource_type": "tool",
+          "source": "https://ghidra-sre.org/",
+          "is_offensive": false,
+          "is_defensive": true,
+          "difficulty": "advanced",
+          "tags": "reverse-engineering,tool,nsa",
+          "summary": "Công cụ Reverse Engineering mạnh mẽ và miễn phí từ NSA."
+        }
+      ]
+    },
+    {
+      "slug": "cryptography",
+      "name": "Cryptography",
+      "topic_type": "both",
+      "domain": "Crypto",
+      "level": "advanced",
+      "description": "Mật mã học, các thuật toán mã hóa, băm, chữ ký số và các tấn công vào hệ thống mật mã.",
+      "resources": [
+        {
+          "title": "Crypto 101",
+          "resource_type": "book",
+          "source": "https://www.crypto101.io/",
+          "is_offensive": false,
+          "is_defensive": true,
+          "difficulty": "beginner",
+          "tags": "crypto,math,theory",
+          "summary": "Khóa học nhập môn về mật mã học dành cho lập trình viên."
+        },
+        {
+          "title": "Cryptopals Crypto Challenges",
+          "resource_type": "lab",
+          "source": "https://cryptopals.com/",
+          "is_offensive": true,
+          "is_defensive": false,
+          "difficulty": "advanced",
+          "tags": "crypto,challenge,breaking",
+          "summary": "Chuỗi bài tập thực hành phá mã để hiểu sâu về các lỗ hổng mật mã."
+        }
+      ]
+    },
+    {
+      "slug": "soc-siem",
+      "name": "SOC & SIEM",
+      "topic_type": "defense",
+      "domain": "Blue Team",
+      "level": "intermediate",
+      "description": "Vận hành trung tâm điều hành an ninh (SOC), sử dụng SIEM để thu thập và phân tích log.",
+      "resources": [
+        {
+          "title": "Elastic Security (ELK)",
+          "resource_type": "tool",
+          "source": "https://www.elastic.co/security",
+          "is_offensive": false,
+          "is_defensive": true,
+          "difficulty": "intermediate",
+          "tags": "siem,elk,logging",
+          "summary": "Giải pháp SIEM mã nguồn mở phổ biến dựa trên Elastic Stack."
+        },
+        {
+          "title": "MITRE ATT&CK Framework",
+          "resource_type": "article",
+          "source": "https://attack.mitre.org/",
+          "is_offensive": true,
+          "is_defensive": true,
+          "difficulty": "intermediate",
+          "tags": "framework,tactic,technique",
+          "summary": "Cơ sở tri thức về các chiến thuật và kỹ thuật tấn công của đối thủ."
+        }
+      ]
+    },
+    {
+      "slug": "pentest-basics",
+      "name": "Penetration Testing",
+      "topic_type": "attack",
+      "domain": "Red Team",
+      "level": "beginner",
+      "description": "Quy trình kiểm thử xâm nhập chuẩn, từ thu thập thông tin đến khai thác và báo cáo.",
+      "resources": [
+        {
+          "title": "Metasploit Unleashed",
+          "resource_type": "note",
+          "source": "https://www.offsec.com/metasploit-unleashed/",
+          "is_offensive": true,
+          "is_defensive": false,
+          "difficulty": "intermediate",
+          "tags": "metasploit,exploit,framework",
+          "summary": "Hướng dẫn sử dụng Metasploit Framework toàn diện."
+        },
+        {
+          "title": "Hack The Box",
+          "resource_type": "lab",
+          "source": "https://www.hackthebox.com/",
+          "is_offensive": true,
+          "is_defensive": false,
+          "difficulty": "intermediate",
+          "tags": "lab,ctf,practice",
+          "summary": "Nền tảng luyện tập Pentest với các máy ảo thực tế."
+        }
+      ]
+    }
+  ]
+}

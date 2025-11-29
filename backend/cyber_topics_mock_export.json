@@ -1,0 +1,96 @@
+{
+  "topics": [
+    {
+      "slug": "thi-thu-tieng-anh",
+      "name": "Thi thử Tiếng Anh",
+      "topic_type": "other",
+      "domain": "Mock Exams",
+      "level": "intermediate",
+      "description": "Các đề thi thử môn Tiếng Anh - THPT Quốc gia",
+      "resources": [
+        {
+          "title": "Thi thử Tiếng Anh (Mock) 01",
+          "resource_type": "note",
+          "file_url": "https://drive.google.com/file/d/SAMPLE_ID_1/view",
+          "is_offensive": false,
+          "is_defensive": false,
+          "difficulty": "intermediate",
+          "tags": "mock-test,english,thpt",
+          "summary": "Đề thi thử THPT Quốc gia môn Tiếng Anh - Đề số 01"
+        },
+        {
+          "title": "Đề thi thử THPT Quốc gia 2019 môn Tiếng Anh",
+          "resource_type": "note",
+          "file_url": "https://drive.google.com/file/d/SAMPLE_ID_2/view",
+          "source": "https://example.com/english-mock-2019",
+          "is_offensive": false,
+          "is_defensive": false,
+          "difficulty": "advanced",
+          "tags": "mock-test,english,2019",
+          "summary": "Đề thi thử chính thức THPT QG 2019 - Tiếng Anh"
+        }
+      ]
+    },
+    {
+      "slug": "thi-thu-toan",
+      "name": "Thi thử Toán",
+      "topic_type": "other",
+      "domain": "Mock Exams",
+      "level": "intermediate",
+      "description": "Các đề thi thử môn Toán - THPT Quốc gia",
+      "resources": [
+        {
+          "title": "Thi thử Toán (Mock) 01",
+          "resource_type": "note",
+          "file_url": "https://drive.google.com/file/d/SAMPLE_ID_3/view",
+          "is_offensive": false,
+          "is_defensive": false,
+          "difficulty": "intermediate",
+          "tags": "mock-test,math,thpt",
+          "summary": "Đề thi thử THPT Quốc gia môn Toán - Đề số 01"
+        },
+        {
+          "title": "Một số biến pháp dạy và ôn tập môn Toán",
+          "resource_type": "book",
+          "file_url": "https://drive.google.com/file/d/SAMPLE_ID_4/view",
+          "is_offensive": false,
+          "is_defensive": false,
+          "difficulty": "beginner",
+          "tags": "guide,math,teaching",
+          "summary": "Tài liệu hướng dẫn phương pháp dạy và ôn tập Toán hiệu quả"
+        }
+      ]
+    },
+    {
+      "slug": "thi-thu-vat-ly",
+      "name": "Thi thử Vật lý",
+      "topic_type": "other",
+      "domain": "Mock Exams",
+      "level": "intermediate",
+      "description": "Các đề thi thử môn Vật lý - THPT Quốc gia",
+      "resources": [
+        {
+          "title": "Thi thử Vật lý (Mock) 01",
+          "resource_type": "note",
+          "file_url": "https://drive.google.com/file/d/SAMPLE_ID_5/view",
+          "is_offensive": false,
+          "is_defensive": false,
+          "difficulty": "intermediate",
+          "tags": "mock-test,physics,thpt",
+          "summary": "Đề thi thử THPT Quốc gia môn Vật lý - Đề số 01"
+        },
+        {
+          "title": "Lý thuyết và bài tập Hóa học hữu cơ cơ bản",
+          "resource_type": "book",
+          "file_url": "https://drive.google.com/file/d/SAMPLE_ID_6/view",
+          "source": "https://example.com/chemistry-organic",
+          "is_offensive": false,
+          "is_defensive": false,
+          "difficulty": "intermediate",
+          "tags": "chemistry,theory,practice",
+          "summary": "Tổng hợp lý thuyết và bài tập Hóa học hữu cơ cho học sinh THPT"
+        }
+      ]
+    }
+  ]
+}
