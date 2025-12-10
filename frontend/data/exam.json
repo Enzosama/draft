@@ -1,0 +1,35 @@
+{
+  "examTitle": "Thi thử Tiếng Anh - Đọc hiểu",
+  "version": "v1",
+  "difficulty": "Trung bình",
+  "totalQuestions": 12,
+  "initialTimeSeconds": 1800,
+  "studentInfo": {
+    "name": "Học sinh kiểm thử",
+    "subject": "Tiếng Anh",
+    "date": "2025-11-16"
+  },
+  "passage": {
+    "title": "The Benefits of Daily Reading",
+    "content": [
+      "Reading every day helps improve vocabulary and comprehension. It also enhances focus and reduces stress.",
+      "Many students report better test scores after adopting a daily reading routine. Even short sessions (15–20 minutes) can make a difference.",
+      "Choose topics you enjoy to build a sustainable habit. Over time, you will notice increased confidence when tackling complex texts."
+    ],
+    "source": "Education Journal, 2024"
+  },
+  "questions": [
+    {"id": 1, "text": "What is one benefit of daily reading?", "options": ["It increases stress", "It improves vocabulary", "It reduces confidence", "It wastes time"]},
+    {"id": 2, "text": "How long can short reading sessions be effective?", "options": ["1–2 minutes", "5–10 minutes", "15–20 minutes", "60 minutes"]},
+    {"id": 3, "text": "Which habit helps improve test scores?", "options": ["Daily reading", "Watching TV", "Skipping practice", "Listening to music only"]},
+    {"id": 4, "text": "Selecting topics you enjoy helps to:", "options": ["Make the habit sustainable", "Reduce reading speed", "Avoid complex texts", "Forget vocabulary"]},
+    {"id": 5, "text": "Confidence increases when:", "options": ["You avoid reading", "You read complex texts over time", "You stop practicing", "You only read headlines"]},
+    {"id": 6, "text": "Daily reading primarily improves:", "options": ["Math skills", "Comprehension", "Cooking", "Physical strength"]},
+    {"id": 7, "text": "Short sessions are:", "options": ["Not useful", "Potentially effective", "Only for advanced readers", "Too tiring"]},
+    {"id": 8, "text": "Students reported better scores after:", "options": ["Reducing reading", "Daily reading", "Skipping tests", "Only reading summaries"]},
+    {"id": 9, "text": "Stress can be reduced by:", "options": ["Daily reading", "Cramming", "Ignoring study", "Sleeping in class"]},
+    {"id": 10, "text": "To make reading a habit:", "options": ["Choose boring topics", "Choose topics you enjoy", "Read once a month", "Avoid complex texts"]},
+    {"id": 11, "text": "Over time, reading helps you tackle:", "options": ["Only simple texts", "Complex texts", "Non-text tasks", "No change"]},
+    {"id": 12, "text": "Daily reading is described as:", "options": ["A waste of time", "Stressful", "Beneficial", "Only for experts"]}
+  ]
+}

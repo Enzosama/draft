@@ -70,7 +70,7 @@ const Header: React.FC<HeaderProps> = ({
                     className={`flex items-center px-4 py-2 rounded-md text-sm font-medium transition-colors duration-300 ${buttonClass}`}
                   >
                     {item.icon}
-                    {item.name}
+                    {(item as any).displayName || item.name}
                   </button>
                 );
               })}

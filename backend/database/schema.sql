@@ -103,3 +103,55 @@ CREATE TABLE IF NOT EXISTS exam_questions (
     FOREIGN KEY (question_id) REFERENCES questions(question_id)
 );
 CREATE INDEX IF NOT EXISTS idx_exam_questions_order ON exam_questions(exam_id, order_index);
+
+-- Classrooms Table
+CREATE TABLE IF NOT EXISTS classrooms (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    description TEXT,
+    subject TEXT,
+    teacher_id INTEGER NOT NULL,
+    code TEXT UNIQUE NOT NULL,
+    is_active BOOLEAN DEFAULT 1,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (teacher_id) REFERENCES users(id)
+);
+
+-- Classroom Students Table
+CREATE TABLE IF NOT EXISTS classroom_students (
+    classroom_id INTEGER NOT NULL,
+    student_id INTEGER NOT NULL,
+    joined_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (classroom_id, student_id),
+    FOREIGN KEY (classroom_id) REFERENCES classrooms(id),
+    FOREIGN KEY (student_id) REFERENCES users(id)
+);
+
+CREATE INDEX IF NOT EXISTS idx_classrooms_teacher ON classrooms(teacher_id);
+CREATE INDEX IF NOT EXISTS idx_classrooms_code ON classrooms(code);
+
+-- Notifications Table
+CREATE TABLE IF NOT EXISTS notifications (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    classroom_id INTEGER NOT NULL,
+    title TEXT NOT NULL,
+    content TEXT NOT NULL,
+    is_announcement BOOLEAN DEFAULT 0,
+    created_by INTEGER NOT NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (classroom_id) REFERENCES classrooms(id),
+    FOREIGN KEY (created_by) REFERENCES users(id)
+);
+
+-- Notification Reads Table
+CREATE TABLE IF NOT EXISTS notification_reads (
+    notification_id INTEGER NOT NULL,
+    student_id INTEGER NOT NULL,
+    read_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (notification_id, student_id),
+    FOREIGN KEY (notification_id) REFERENCES notifications(id),
+    FOREIGN KEY (student_id) REFERENCES users(id)
+);
+
+CREATE INDEX IF NOT EXISTS idx_notifications_classroom ON notifications(classroom_id);

@@ -12,11 +12,13 @@ import AdminDashboard from './components/AdminDashboard';
 import TeacherDashboard from './components/TeacherDashboard';
 import PracticeRAG from './components/PracticeRAG';
 import CyberTopics from './components/CyberTopics';
+
 import { Post, Category, User } from './data/types';
 
 type View = 'home' | 'pdf' | 'exam' | 'practice' | 'profile' | 'login' | 'register' | 'forgot-password' | 'admin' | 'teacher';
 
 const App: React.FC = () => {
+  console.log('App component mounting...');
   const [posts, setPosts] = useState<Post[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   // Mặc định chuyển sang tab "Tài Liệu" thay vì "Đề Thi" (đã ẩn khỏi header)
@@ -161,12 +163,14 @@ const App: React.FC = () => {
     }
   };
 
-  const handleSetActiveCategory = (category: Category) => {
+  const handleSetActiveCategory = (category: Category | string) => {
     if (category === Category.PRACTICE) {
       setActiveCategory(category);
       setCurrentView('practice');
+      window.location.hash = '';
     } else {
-      setActiveCategory(category);
+      setActiveCategory(category as Category);
+      window.location.hash = '';
       resetToHome();
     }
   }
@@ -291,6 +295,7 @@ const App: React.FC = () => {
             <PracticeRAG />
           </div>
         );
+
       case 'admin':
         return currentUser ? <AdminDashboard currentUser={currentUser} onClose={resetToHome} /> : null;
       case 'teacher':

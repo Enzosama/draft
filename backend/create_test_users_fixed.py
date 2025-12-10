@@ -110,6 +110,42 @@ async def create_or_update_test_users():
             except Exception as e2:
                 print(f"❌ Error: {e2}")
     
+    print("\n" + "="*50 + "\n")
+    
+    # Test Admin Account
+    admin_email = "admin@test.com"
+    admin_password = "admin123"
+    
+    # Check if exists
+    existing = await db.fetch_one("SELECT id, email, role FROM users WHERE email = ?", [admin_email])
+    
+    if existing:
+        print(f"⚠️  Admin exists, updating password...")
+        password_hash = get_password_hash(admin_password)
+        await db.update(
+            "UPDATE users SET password_hash = ?, is_active = 1, role = 'admin' WHERE email = ?",
+            [password_hash, admin_email]
+        )
+        
+        # Verify
+        user = await db.fetch_one("SELECT password_hash FROM users WHERE email = ?", [admin_email])
+        if user and verify_password(admin_password, user["password_hash"]):
+            print(f"✅ Admin password updated and verified")
+        else:
+            print(f"❌ Admin password verification failed!")
+    else:
+        print(f"📝 Creating new admin...")
+        password_hash = get_password_hash(admin_password)
+        try:
+            user_id = await db.insert(
+                """INSERT INTO users (fullname, email, phone, password_hash, role, is_active) 
+                   VALUES (?, ?, ?, ?, 'admin', 1)""",
+                ["Admin User", admin_email, "0000000000", password_hash]
+            )
+            print(f"✅ Admin created (ID: {user_id})")
+        except Exception as e:
+            print(f"❌ Error: {e}")
+
     print("\n" + "="*50)
     print("\n📋 Test Accounts Summary:")
     print(f"\n👨‍🎓 STUDENT:")
